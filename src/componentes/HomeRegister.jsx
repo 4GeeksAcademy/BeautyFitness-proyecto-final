@@ -5,7 +5,7 @@ import Card from "./Card.jsx";
 import FormRegister from "./Card.jsx";
 import Footer from "./Footer.jsx";
 
-const Home = () => {
+const HomeRegister = () => {
 	return (
 		<div >
 			<NavBar />
@@ -22,4 +22,4 @@ const Home = () => {
 	);
 };
 
-export default FormRegister;
+export default HomeRegister;

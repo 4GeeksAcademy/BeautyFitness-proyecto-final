@@ -1,6 +1,6 @@
 import React from "react";
 
-const Text = () => {
+const FormSignIn = () => {
     return (
         <FormSignIn>
          
@@ -26,10 +26,11 @@ const Text = () => {
             <div className="row mb-3">
                 <div className="col-sm-10 offset-sm-2">
                     <a href="/forgot-password" className="text-muted">Forgot Password?</a>
+                    <button type="submit" className="btn btn-primary">Forgot Password?</button>
                 </div> 
             </div>
         </FormSignIn>
     );
 };
 
-export default Text;
+export default FormSignIn;
