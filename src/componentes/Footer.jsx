@@ -5,13 +5,12 @@ const Footer = () => {
     return (
       
       <div className="card">
-  <div class="card-header text-center">
-    
-   
-    <i class="fab fa-twitter"></i>
-    <i class="fab fa-instagram"></i>
-    <i class="fab fa-youtube"></i>
-    <i class="fab fa-linkedin-in"></i>
+  <div className="card-header d-flex justify-content-start">
+       
+    <i className="fab fa-twitter m-20px"></i>
+    <i className="fab fa-instagram mr-20px"></i>
+    <i className="fab fa-youtube mr-20px"></i>
+    <i className="fab fa-linkedin-in mr-20px"></i>
     
 
   </div>
