@@ -4,13 +4,9 @@ import ScrollToTop from "./component/scrollToTop";
 //import { BackendURL } from "./component/backendURL";
 
 import Home from "./pages/home";
-import { workoutList} from "./pages/workoutList";
-import { workout} from "./pages/workout";
-import { perfil } from "./pages/profile"; // Verifica que este archivo exista y esté en la ubicación correcta
+
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 
 //create your first component
 const Layout = () => {
@@ -24,7 +20,7 @@ const Layout = () => {
         <div>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
-                    <Navbar /> {/* Descomentado para que el Navbar se muestre */}
+                    <navbar /> {/* Descomentado para que el Navbar se muestre */}
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<profile />} path="/profile" />
@@ -34,8 +30,8 @@ const Layout = () => {
                         <Route element={<workout />} path="/workout/:theid" /> 
                         <Route element={<workoutList />} path="/workoutList/:theid" /> 
                         <Route element={<h1>Not found!</h1>} path="*" /> {/* Añadido path="*" */}
-                    </Routes>
-                    <Footer /> {/* Descomentado para que el Footer se muestre */}
+                    </Routes>  
+                    <footer /> {/* Descomentado para que el Footer se muestre */}
                 </ScrollToTop>
             </BrowserRouter>
         </div>

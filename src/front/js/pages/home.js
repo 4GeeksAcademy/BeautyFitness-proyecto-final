@@ -1,8 +1,6 @@
 import React from "react";
-import navBar from "../componentes/navBar.jsx";
-//import Text from "./Text.jsx";
-import Card from "../component/Card.jsx";
-import Footer from "../componentes/Footer.jsx";
+//import Text from "./Text.js";
+import Card from "../component/Card.js";
 
 
 const Home = () => {
@@ -22,4 +20,4 @@ const Home = () => {
 	);
 };
 
-
+export default Home;

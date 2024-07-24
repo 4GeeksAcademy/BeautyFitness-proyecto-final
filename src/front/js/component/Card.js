@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Card = () => {
+export const Card = () => {
   return (
     <div className="col-xl-6">
       <div className="card d-flex justify-content-center mb-5 mt-4 mx-auto" style={{ width: "36rem" }}>
@@ -35,7 +35,7 @@ const Card = () => {
 };
 
 
-
+export default Card;
 
 
 

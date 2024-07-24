@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormSignIn = () => {
+export const FormSignIn = () => {
     return (
         <FormSignIn>
          

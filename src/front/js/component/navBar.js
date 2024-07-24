@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const NavBar = () => { return (
+export const NavBar = () => { return (
   <nav className="navbar navbar-expand-lg bg-secondary mb-20">
     <div className="container-fluid ">
       <a className="navbar-brand" href="#">LOGO</a>
