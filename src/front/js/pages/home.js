@@ -1,13 +1,14 @@
 import React from "react";
-import NavBar from "../../../componentes/NavBar.jsx";
+import navBar from "../componentes/navBar.jsx";
 //import Text from "./Text.jsx";
-import Card from "../../../componentes/Card.jsx";
-import Footer from "../../../componentes/Footer.jsx";
+import Card from "../component/Card.jsx";
+import Footer from "../componentes/Footer.jsx";
+
 
 const Home = () => {
 	return (
-		<div >
-			<NavBar />
+		<div>
+			<navBar />
 			
 			<div className="row align-center">
 				<Card />
@@ -15,10 +16,10 @@ const Home = () => {
 				<Card />
 				<Card />
 			</div>
-			<Footer />
+			<footer />
 		</div>
 
 	);
 };
 
-export default Home;
+
