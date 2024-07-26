@@ -14,9 +14,6 @@ export const Home = () => {
     return (
         <div className="text-center mt-5">
 			<div className="mb-5">
-                <Link to="/signup">
-                    <button className="btn btn-secondary">Sign up</button>
-                </Link>
             </div>
             <h1>Hello Rigo!!</h1>
             <p>
