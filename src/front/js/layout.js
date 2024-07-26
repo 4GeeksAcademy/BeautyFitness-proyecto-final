@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 //import { BackendURL } from "./component/backendURL";
 
-import Home from "./pages/home";
+// import Home from "../js/pages/home.js";
 
 import injectContext from "./store/appContext";
 
@@ -22,7 +22,7 @@ const Layout = () => {
                 <ScrollToTop>
                     <navbar /> {/* Descomentado para que el Navbar se muestre */}
                     <Routes>
-                        <Route element={<Home />} path="/" />
+                       {/* // <Route element={<Home />} path="/" /> */}
                         <Route element={<profile />} path="/profile" />
                         <Route element={<register />} path="/register/:theid" />
                         <Route element={<singIn />} path="/singIn/:theid" />
