@@ -1,7 +1,5 @@
-import React from 'react';
-
-
-const WorkoutList = () => {
+import React from "react";
+ export const WorkoutList = () => {
   return (
     <div>
       <navbar />
@@ -14,4 +12,4 @@ const WorkoutList = () => {
   );
 };
 
-export default WorkoutList;
+ 

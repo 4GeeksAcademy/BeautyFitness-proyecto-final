@@ -1,7 +1,5 @@
-import React from 'react';
-
-
-const Workout = () => {
+import React from "react";
+ export const Workout = () => {
   return (
     <div>
       <navbar />
@@ -14,4 +12,4 @@ const Workout = () => {
   );
 };
 
-export default Workout;
+ 

@@ -1,7 +1,5 @@
-import React from 'react';
-
-
-const Profile = () => {
+import React from "react";
+ export const Profile = () => {
   return (
     <div>
       <Navbar />
@@ -14,4 +12,3 @@ const Profile = () => {
   );
 };
 
-export default Profile;

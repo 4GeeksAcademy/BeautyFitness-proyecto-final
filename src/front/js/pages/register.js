@@ -1,6 +1,5 @@
-import React from 'react';
-
-const Register = () => {
+import React from "react";
+ export const Register = () => {
   return (
     <div>
       <navbar />
@@ -13,4 +12,3 @@ const Register = () => {
   );
 };
 
-export default Register;

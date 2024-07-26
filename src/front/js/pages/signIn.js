@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const SignIn = () => {
+ export const SignIn = () => {
   return (
     <div>
       <navbar />
@@ -12,5 +12,3 @@ const SignIn = () => {
     </div>
   );
 };
-
-export default SignIn;

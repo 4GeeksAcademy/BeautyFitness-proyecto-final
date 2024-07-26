@@ -1,23 +1,20 @@
 import React from "react";
-//import Text from "./Text.js";
-import Card from "../component/Card.js";
+import NavBar from "../components/navBar.js"; // Asegúrate de que la ruta sea correcta
+import Card from "../components/Card.js"; // Asegúrate de que la ruta sea correcta
+import Footer from "../components/Footer.js"; // Asegúrate de que la ruta sea correcta
 
-
-const Home = () => {
-	return (
-		<div>
-			<navBar />
-			
-			<div className="row align-center">
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-			</div>
-			<footer />
-		</div>
-
-	);
+export const Home = () => {
+  return (
+    <div>
+      <NavBar />
+      <div className="row align-center">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
-export default Home;
