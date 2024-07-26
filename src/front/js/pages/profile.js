@@ -1,11 +1,14 @@
 import React from "react";
- export const Profile = () => {
+import { NavBar } from "../component/navBar";
+import Footer from "../component/footer";
+ 
+export const Profile = () => {
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <main>
         <h1>Profile Page</h1>
-        <FormProfile />
+        <FormRegister />
       </main>
       <Footer />
     </div>

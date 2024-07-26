@@ -1,13 +1,16 @@
 import React from "react";
+import { NavBar } from "../component/navBar";
+import Footer from "../component/footer";
+import FormRegister from "../component/formRegister";
  export const Register = () => {
   return (
     <div>
-      <navbar />
+      <NavBar />
       <main>
         <h1>Register Page</h1>
-        <formRegister />
+        <FormRegister  />
       </main>
-      <footer />
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const FormRegister = () => {
+const FormRegister = () => {
     return (
         <form>
             <div className="row mb-3">
@@ -40,4 +40,4 @@ export const FormRegister = () => {
     );
 };
 
-
+export default FormRegister;

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const FormSignIn = () => {
+const FormSignIn = () => {
     return (
         <FormSignIn>
          
@@ -33,3 +33,4 @@ export const FormSignIn = () => {
     );
 };
 
+export default FormSignIn;

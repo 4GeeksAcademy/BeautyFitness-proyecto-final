@@ -1,19 +1,19 @@
 import React from "react";
-//import NavBar from "../components/navBar.js"; // Asegúrate de que la ruta sea correcta
-//import Card from "../components/Card.js"; // Asegúrate de que la ruta sea correcta
-//import Footer from "../components/Footer.js"; // Asegúrate de que la ruta sea correcta
+import { Card } from "../component/Card";
+import Footer from "../component/footer";
+import { NavBar } from "../component/navBar";
 
 export const Home = () => {
   return (
     <div>
-     {/* <NavBar /> */}
+     <NavBar />
       <div className="row align-center">
         <Card />
         <Card />
         <Card />
         <Card />
       </div>
-      {/* <Footer /> */}
+      <Footer /> 
     </div>
   );
 };

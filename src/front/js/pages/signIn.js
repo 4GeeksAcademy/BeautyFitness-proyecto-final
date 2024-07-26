@@ -1,14 +1,17 @@
 import React from "react";
+import { NavBar } from "../component/navBar";
+import Footer from "../component/footer";
+import FormSignIn from "../component/formSignIn";
 
  export const SignIn = () => {
   return (
     <div>
-      <navbar />
+      <NavBar />
       <main>
         <h1>Sign In Page</h1>
-        <formSignIn />
+        <FormSignIn />
       </main>
-      <footer />
+      <Footer />
     </div>
   );
 };
