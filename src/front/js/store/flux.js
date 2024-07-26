@@ -1,3 +1,6 @@
+import Swal from 'sweetalert2';
+
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -60,6 +63,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 				}
 			},
+
+			register: async (name, surname, email, username, password) => {
+                try {
+                    const response = await fetch("https://friendly-space-pancake-g4xxvjw4qj57fppxr-3001.app.github.dev/api/register", {
+                        method: "POST",
+                        headers: {
+                            "content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password,
+                            name,
+                            surname,
+                            username
+                        })
+                    })
+                    if (!response.ok) {
+                        throw await response.json()
+                    }
+                    const data = await response.json()
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success!",
+                        text: data.msg,
+                    });
+                    return true
+                } catch (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: error.msg,
+                    });
+                    console.log(error)
+                }
+            },
 
 			getMessage: async () => {
 				const store = getStore();

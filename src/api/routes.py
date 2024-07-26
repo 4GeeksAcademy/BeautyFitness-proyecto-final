@@ -26,9 +26,9 @@ def handle_hello():
 def register():
     body = request.json
     user = User()
-    new_user = user.create_user(email=body["email"],password=body["password"])
+    new_user = user.create_user(email=body["email"], password=body["password"], name=body["name"], surname=body["surname"], username=body["username"])
     print(new_user)
-    return jsonify({"msg":"User created"})
+    return jsonify({"msg": "User created"})
 
 @api.route('/login', methods=['POST'])
 def login():

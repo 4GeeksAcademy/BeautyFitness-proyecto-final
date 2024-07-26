@@ -9,7 +9,11 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
+    name = db.Column(db.String(80), nullable=False)
+    surname = db.Column(db.String(80), nullable=False)
+    username = db.Column(db.String(80), unique=True, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -20,12 +24,15 @@ class User(db.Model):
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password, password)
 
-    def create_user(self, email, password, is_active=True):
+    def create_user(self, email, password, name, surname, username, is_active=True):
         hashed_password = self.generate_password(password).decode('utf-8')
         new_user = User(
             email = email,
             password = hashed_password,
-            is_active = is_active
+            is_active = is_active,
+            name=name,
+            surname=surname,
+            username=username
         )
         db.session.add(new_user)
         db.session.commit()
@@ -35,5 +42,8 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+            "name": self.name,
+            "surname": self.surname,
+            "username": self.username,
             # do not serialize the password, its a security breach
         }
