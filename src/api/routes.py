@@ -20,3 +20,32 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+# @app.route('/api/users', methods=['GET'])
+# def get_users():
+#     users = User.query.all()
+#     return jsonify([user.serialize() for user in users])
+
+# @app.route('/api/users/<int:id>', methods=['GET'])
+# def get_user(id):
+#     user = User.query.get_or_404(id)
+#     return jsonify(user.serialize())
+
+
+
+# levels = ['beginner', 'intermediate', 'advanced']
+
+# @api.route('/experience', methods=['POST'])
+# def experience_level():
+#     data = request.json 
+#     level = data.get('level')
+
+#     if level not in levels:
+#         return jsonify({'error':'level not valid'}), 400
+#     else: 
+#         return jsonify({'msg': f'experience level "{level}" is correct'}), 200
+    
+#     db.session.add(experience_level)
+#     db.session.commit()
+#     return jsonify(experience_level.serialize()), 201
+
