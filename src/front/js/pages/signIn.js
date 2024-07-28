@@ -3,7 +3,7 @@ import { NavBar } from "../component/navBar";
 import Footer from "../component/footer";
 import FormSignIn from "../component/formSignIn";
 
- export const SignIn = () => {
+export const SignIn = () => {
   return (
     <div>
       <NavBar />
@@ -15,3 +15,4 @@ import FormSignIn from "../component/formSignIn";
     </div>
   );
 };
+export default SignIn;

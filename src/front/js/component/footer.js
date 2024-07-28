@@ -4,8 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer mt-auto py-3 text-center">
       <p>
-        Made with <i className="fa fa-heart text-danger" /> by{" "}
-        <a href="http://www.4geeksacademy.com">BeautyFitness</a>
+       BeautyFitness
       </p>
       <div className="social-icons">
         <i className="fab fa-twitter m-20px"></i>

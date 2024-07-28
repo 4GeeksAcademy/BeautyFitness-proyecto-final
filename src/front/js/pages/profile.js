@@ -1,8 +1,9 @@
 import React from "react";
 import { NavBar } from "../component/navBar";
 import Footer from "../component/footer";
- 
-export const Profile = () => {
+import FormRegister from "../component/formRegister";
+
+const Profile = () => {
   return (
     <div>
       <NavBar />
@@ -15,3 +16,4 @@ export const Profile = () => {
   );
 };
 
+export default Profile;

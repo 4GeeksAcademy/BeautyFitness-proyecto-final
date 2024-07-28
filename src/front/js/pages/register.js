@@ -2,7 +2,8 @@ import React from "react";
 import { NavBar } from "../component/navBar";
 import Footer from "../component/footer";
 import FormRegister from "../component/formRegister";
- export const Register = () => {
+
+export const Register = () => {
   return (
     <div>
       <NavBar />
@@ -15,3 +16,5 @@ import FormRegister from "../component/formRegister";
   );
 };
 
+
+export default Register;

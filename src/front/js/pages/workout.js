@@ -1,7 +1,7 @@
 import React from "react";
 import { NavBar } from "../component/navBar";
 import Footer from "../component/footer";
- export const Workout = () => {
+export const Workout = () => {
   return (
     <div>
       <NavBar />
@@ -14,4 +14,4 @@ import Footer from "../component/footer";
   );
 };
 
- 
+export default Workout;

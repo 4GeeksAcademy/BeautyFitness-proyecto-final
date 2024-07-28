@@ -14,4 +14,4 @@ import { NavBar } from "../component/navBar";
   );
 };
 
- 
+export default WorkoutList;
