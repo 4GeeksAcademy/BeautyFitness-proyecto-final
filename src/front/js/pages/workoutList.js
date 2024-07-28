@@ -7,7 +7,7 @@ import { NavBar } from "../component/navBar";
       <NavBar />
       <main>
         <h1>Workout List Page</h1>
-        <p>List of all workouts.</p>
+        <p>List of all workouts</p>
       </main>
       <Footer />
     </div>

@@ -15,7 +15,7 @@ import Workout from "./pages/workout"; // Importa el componente Workout
 import WorkoutList from "./pages/workoutList"; // Importa el componente WorkoutList
 import FormRegister from "./component/formRegister";
 import FormSignIn from "./component/formSignIn";
-
+import ProfileExperienceLevel from"./pages/profileExperienceLevel";
 
 
 //create your first component
@@ -40,7 +40,8 @@ const Layout = () => {
                         <Route element={<SignIn />} path="/singIn/:theid" />
                         <Route element={<Single />} path="/single/:theid" /> {/* Asegúrate de que esta ruta sea única */}
                         <Route element={<Workout />} path="/workout/:theid" /> 
-                        <Route element={<WorkoutList />} path="/workoutList/:theid" /> 
+                        <Route element={<WorkoutList />} path="/workoutList" /> 
+                        <Route element={<ProfileExperienceLevel  />} path="/profileExperienceLevel" />
                         <Route element={<h1>Not found!</h1>} path="*" /> {/* Añadido path="*" */}
                     </Routes>  
                     <Footer /> {/* Descomentado para que el Footer se muestre */}
