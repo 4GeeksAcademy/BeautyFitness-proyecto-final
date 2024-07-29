@@ -1,20 +1,20 @@
 import React from "react";
-import { NavBar } from "../component/navBar";
-import Footer from "../component/footer";
-
+import "../../styles/profileObjetive.css";
 const ProfileObjetive = () => {
   return (
     <div>
-      <NavBar />
-      <main>
-        <h1>Profile Objetive</h1>
-        <h1>Objetive type</h1>
+     
+      <main className="profileObjetive-container">
+        <h1 className="mt-5">Profile Objetive</h1>
+        <h3>Objetive type</h3>
+        <div className="button-container">
         <button type="button" class="btn btn-secondary">HYPERTROPHY</button>
         <button type="button" class="btn btn-secondary">WEIGHTLOSS</button>
         <button type="button" class="btn btn-secondary">MUSCLE DEFINITION</button>
         <button type="button" class="btn btn-success">Continue</button>
+        </div>
       </main>
-      <Footer />
+    
     </div>
   );
 };

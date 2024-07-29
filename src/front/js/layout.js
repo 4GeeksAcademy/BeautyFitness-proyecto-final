@@ -16,6 +16,7 @@ import WorkoutList from "./pages/workoutList"; // Importa el componente WorkoutL
 import FormRegister from "./component/formRegister";
 import FormSignIn from "./component/formSignIn";
 import ProfileExperienceLevel from"./pages/profileExperienceLevel";
+import ProfileObjetive from "./pages/profileObjetive";
 
 
 //create your first component
@@ -34,14 +35,15 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" /> 
                         <Route element={<Profile />} path="/profile" />
-                        <Route element={<FormRegister />} path="/register/:theid" />
-                        <Route element={<FormSignIn />} path="/singIn/:theid" />
-                        <Route element={<Register />} path="/singIn/:theid" />
-                        <Route element={<SignIn />} path="/singIn/:theid" />
-                        <Route element={<Single />} path="/single/:theid" /> {/* Asegúrate de que esta ruta sea única */}
-                        <Route element={<Workout />} path="/workout/:theid" /> 
+                        <Route element={<FormRegister />} path="/register" />
+                        <Route element={<FormSignIn />} path="/singIn" />
+                        <Route element={<Register />} path="/singIn" />
+                        <Route element={<SignIn />} path="/singIn" />
+                        <Route element={<Single />} path="/single" /> {/* Asegúrate de que esta ruta sea única */}
+                        <Route element={<Workout />} path="/workout" /> 
                         <Route element={<WorkoutList />} path="/workoutList" /> 
                         <Route element={<ProfileExperienceLevel  />} path="/profileExperienceLevel" />
+                        <Route element={<ProfileObjetive  />} path="/profileObjetive" />
                         <Route element={<h1>Not found!</h1>} path="*" /> {/* Añadido path="*" */}
                     </Routes>  
                     <Footer /> {/* Descomentado para que el Footer se muestre */}

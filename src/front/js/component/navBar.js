@@ -3,7 +3,10 @@ import React from "react";
 export const NavBar = () => { return (
   <nav className="navbar navbar-expand-lg bg-secondary mb-20">
     <div className="container-fluid ">
-      <a className="navbar-brand" href="#">LOGO</a>
+      <a className="navbar-brand" href="fab fa-linkedin-in mr-20px"></a>
+      
+      <i class="fa-duotone fa-solid fa-dumbbell fa-2xl"></i>
+     
       <button
         className="navbar-toggler"
         type="button"
@@ -17,9 +20,9 @@ export const NavBar = () => { return (
       </button>
       <div className="collapse navbar-collapse btn-secondary" id="navbarNavAltMarkup">
         <div className="navbar-nav ms-auto">
-          <a className="nav-link active" aria-current="page" href="#">Home</a>
+          <a className="nav-link active" aria-current="page" href="#"></a>
           <button type="submit" class="btn btn-primary">Sign in</button>
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-primary ms-3">Register</button>
         </div>
       </div>
     </div>

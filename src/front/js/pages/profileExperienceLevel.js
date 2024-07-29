@@ -1,14 +1,11 @@
 import React from "react";
-import { NavBar } from "../component/navBar";
-import Footer from "../component/footer";
 import "../../styles/profileExperienceLevel.css";
 const ProfileExperienceLevel = () => {
   return (
      <div>
-        <NavBar />
          <main className="profileExperiencieLevel-container">
-        <h1>Profile Objetive</h1>
-        <h1>Objetive type</h1>
+        <h1 className="mt-5">Profile Objetive</h1>
+        <h3>Objetive type</h3>
         <div className="button-container">
         <button type="button" class="btn btn-secondary">BIGGINER</button>
         <button type="button" class="btn btn-secondary">INTERMEDIATE</button>
@@ -16,7 +13,6 @@ const ProfileExperienceLevel = () => {
         <button type="button" class="btn btn-success">Continue</button>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
