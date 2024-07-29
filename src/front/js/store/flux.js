@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			token: null,
 			message: null,
+			user: null,
 			demo: [
 				{
 					title: "FIRST",
@@ -25,44 +26,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 
+			// Obtener token y usuario de localStorage y actualizar store
+			// Obtener token y usuario de localStorage y actualizar store
 			syncTokenFromLocalStorage: () => {
-				const token = localStorage.getItem('token')
-				if (token && token != "" && token != undefined) setStore({token: token})
+				const token = localStorage.getItem("token");
+				const user = JSON.parse(localStorage.getItem("user"));
+				if (token && token != "" && token != "undefined") setStore({ token: token });
+				if (user) setStore({ user: user });
 			},
+						
 
-			logout: () => {
-				localStorage.removeItem('token')
-				setStore({token: null})
-			},
-
+			// Acción de inicio de sesión
 			login: async (email, password) => {
 				try {
-					const response = await fetch("https://friendly-space-pancake-g4xxvjw4qj57fppxr-3001.app.github.dev/api/login",{
-						method:"POST",
+					const response = await fetch("https://friendly-space-pancake-g4xxvjw4qj57fppxr-3001.app.github.dev/api/login", {
+						method: "POST",
 						headers: {
-							"content-Type":"application/json"
+							"Content-Type": "application/json"
 						},
 						body: JSON.stringify({
 							email,
 							password
 						})
-					})
-					if(!response.ok){
-						throw await response.json()
+					});
+
+					if (!response.ok) {
+						throw await response.json();
 					}
-					const data = await response.json()
-					localStorage.setItem('token',data.token)
-					setStore({token: data.token})
-					return true
+
+					const data = await response.json();
+					localStorage.setItem('token', data.token);
+					localStorage.setItem('user', JSON.stringify(data.user.id));
+					setStore({ token: data.token, user: data.user });
+					return true;
 				} catch (error) {
 					Swal.fire({
 						icon: "error",
 						title: "Oops...",
-						text: error.msg,                
-					  });
-					console.log(error)
+						text: error.msg,
+					});
+					console.log(error);
 				}
 			},
+								
 
 			register: async (name, surname, email, username, password) => {
                 try {
@@ -98,6 +104,58 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log(error)
                 }
             },
+
+			updateUser: async (updatedUserData) => {
+				const store = getStore();
+				if (!store.user || !store.token) {
+					Swal.fire({
+						icon: "error",
+						title: "User not logged in",
+						text: "Please log in first",
+					});
+					return;
+				}
+				
+				try {
+					const response = await fetch(`https://friendly-space-pancake-g4xxvjw4qj57fppxr-3001.app.github.dev/api/user/${store.user.id}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": `Bearer ${store.token}`
+						},
+						body: JSON.stringify(updatedUserData)
+					});
+			
+					if (!response.ok) {
+						throw await response.json();
+					}
+			
+					const data = await response.json();
+					Swal.fire({
+						icon: "success",
+						title: "Success!",
+						text: data.msg,
+					});
+					
+					const updatedUser = { ...store.user, ...updatedUserData };
+					setStore({ user: updatedUser });
+					
+					return true;
+				} catch (error) {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: error.msg,
+					});
+					console.log(error);
+				}
+			},			
+			
+			logout: () => {
+				localStorage.removeItem('token');
+				localStorage.removeItem('user');
+				setStore({ token: null, user: null });
+			},			
 
 			getMessage: async () => {
 				const store = getStore();
