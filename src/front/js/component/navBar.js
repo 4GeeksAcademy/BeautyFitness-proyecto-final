@@ -18,7 +18,7 @@ export const NavBar = () => { return (
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse btn-secondary" id="navbarNavAltMarkup">
+      <div className="collapse navbar-collapse btn-secondary mt-20" id="navbarNavAltMarkup">
         <div className="navbar-nav ms-auto">
           <a className="nav-link active" aria-current="page" href="#"></a>
           <button type="submit" class="btn btn-primary">Sign in</button>

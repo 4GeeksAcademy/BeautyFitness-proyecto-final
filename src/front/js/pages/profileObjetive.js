@@ -11,7 +11,7 @@ const ProfileObjetive = () => {
         <button type="button" class="btn btn-secondary">HYPERTROPHY</button>
         <button type="button" class="btn btn-secondary">WEIGHTLOSS</button>
         <button type="button" class="btn btn-secondary">MUSCLE DEFINITION</button>
-        <button type="button" class="btn btn-success">Continue</button>
+        <button type="button" class="btn btn-success mt-20 p-10">Continue</button>
         </div>
       </main>
     
