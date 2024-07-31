@@ -52,7 +52,7 @@ const Layout = () => {
                         <Route element={<TrainingDays />} path="/trainingDays" />
                         <Route element={<DayRoutine />} path="/dayRoutine" />
                         <Route element={<VideoWorkout />} path="/videoWorkout" />
-                        <Route element={<SuscriptionInfo />} path="/suscriptionVideo" />
+                        <Route element={<SuscriptionInfo />} path="/suscriptionInfo" />
                         <Route element={<Routine  />} path="/routine" />
                         <Route element={<h1>Not found!</h1>} path="*" /> {/* Añadido path="*" */}
                     </Routes>  

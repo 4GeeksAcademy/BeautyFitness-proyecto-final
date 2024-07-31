@@ -1,5 +1,4 @@
 import React from "react";
-
 export const CardWorkout = () => {
   return (
     <div className="col-xl-3">

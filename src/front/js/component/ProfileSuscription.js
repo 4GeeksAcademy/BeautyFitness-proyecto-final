@@ -16,16 +16,16 @@ export const ProfileSuscription = () => {
             <FontAwesomeIcon icon="fa-regular fa-star" />
             <h5 className="card-title text-center">Personal Data</h5>
             <ul class="list-group list-group-flush">
-    <li class="list-group-item">Username</li>
-    <li class="list-group-item">Pssword</li>
-    <li class="list-group-item">Gender</li>
-    <li class="list-group-item">Age</li>
-    <li class="list-group-item">Height</li>
-    <li class="list-group-item">Weight</li>
-    <li class="list-group-item">Suscription</li>
-    <li class="list-group-item">Goals</li>
-  </ul>
-  <button type="button" class="btn btn-success mb-20">Continue</button>
+                <li class="list-group-item">Username</li>
+                <li class="list-group-item">Pssword</li>
+                <li class="list-group-item">Gender</li>
+                <li class="list-group-item">Age</li>
+                <li class="list-group-item">Height</li>
+                <li class="list-group-item">Weight</li>
+                <li class="list-group-item">Suscription</li>
+                <li class="list-group-item">Goals</li>
+            </ul>
+              <button type="button" class="btn btn-success mb-20">Continue</button>
           </div>
        </div>
          {/*<div className="container footer border-top" style={{ padding: "10px" }}>
