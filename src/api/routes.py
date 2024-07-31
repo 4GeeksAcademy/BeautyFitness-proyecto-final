@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, ExperienceLevel
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
@@ -23,12 +23,8 @@ def handle_hello():
 
 
 
-@api.route('/api/users/<int:id>', methods=['GET'])
-def get_user(id):
-    user = User.query.get_or_404(id)
-    return jsonify(user.serialize())
 
-@app.route('/experience_levels', methods=['POST'])
+@api.route('/experience_levels', methods=['POST'])
 def create_experience_level():
     data = request.get_json()
     new_experience_level = ExperienceLevel(
@@ -39,7 +35,7 @@ def create_experience_level():
     db.session.commit()
     return jsonify({"message": "Experience level created successfully"}), 201
 
-@app.route('/experience_levels', methods=['GET'])
+@api.route('/experience_levels', methods=['GET'])
 def get_experience_levels():
     experience_levels = ExperienceLevel.query.all()
     result = [
@@ -49,9 +45,10 @@ def get_experience_levels():
             "user_id": exp.user_id
         } for exp in experience_levels
     ]
+    print(ExperienceLevel, "prueba")
     return jsonify(result), 200
 
-@app.route('/experience_levels/<int:id>', methods=['GET'])
+@api.route('/experience_levels/<int:id>', methods=['GET'])
 def get_experience_level(id):
     experience_level = ExperienceLevel.query.get_or_404(id)
     result = {
@@ -61,7 +58,7 @@ def get_experience_level(id):
     }
     return jsonify(result), 200
 
-@app.route('/experience_levels/<int:id>', methods=['PUT'])
+@api.route('/experience_levels/<int:id>', methods=['PUT'])
 def update_experience_level(id):
     data = request.get_json()
     experience_level = ExperienceLevel.query.get_or_404(id)
@@ -70,32 +67,13 @@ def update_experience_level(id):
     db.session.commit()
     return jsonify({"message": "Experience level updated successfully"}), 200
 
-@app.route('/experience_levels/<int:id>', methods=['DELETE'])
+@api.route('/experience_levels/<int:id>', methods=['DELETE'])
 def delete_experience_level(id):
     experience_level = ExperienceLevel.query.get_or_404(id)
     db.session.delete(experience_level)
     db.session.commit()
     return jsonify({"message": "Experience level deleted successfully"}), 200
 
-# @api.route('/experience', methods=['POST'])
-# def experience_level():
-
-#     levels = ['beginner', 'intermediate', 'advanced']
-
-#     if not request.is_json:
-#         return jsonify({'error': 'Unsupported Media Type'}), 415
-
-#     data = request.get_json()
-#     level = data.get('level')
-
-#     if level not in levels:
-#         return jsonify({'error': 'Level not valid'}), 400
-
-#     new_experience = ExperienceLevel(level=level)
-#     db.session.add(new_experience)
-#     db.session.commit()
-    
-    # return jsonify({'msg': f'Experience level "{level}" is correct'}), 200
 
 @api.route('/goals', methods=['POST','GET'])
 def goalsworkout():
