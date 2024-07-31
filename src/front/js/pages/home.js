@@ -3,6 +3,9 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import { Card } from "../component/Card";
+//import Footer from "../component/footer";
+//import { NavBar } from "../component/navBar";
 
 export const Home = () => {
     const { store, actions } = useContext(Context);
@@ -11,23 +14,16 @@ export const Home = () => {
     //     if (store.token && store.token !== "" && store.token !== undefined) actions.getMessage();
     // }, [store.token]);
 
+  
     return (
-        <div className="text-center mt-5">
-			<div className="mb-5">
-            </div>
-            <h1>Hello Rigo!!</h1>
-            <p>
-                <img src={rigoImageUrl} alt="Rigo Baby" />
-            </p>
-            <div className="alert alert-info">
-                {store.message}
-            </div>
-            <p>
-                This boilerplate comes with lots of documentation:{" "}
-                <a href="https://start.4geeksacademy.com/starters/react-flask">
-                    Read documentation
-                </a>
-            </p>
+      <div>
+        <div className="row align-center">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
+      </div>
     );
 };
+

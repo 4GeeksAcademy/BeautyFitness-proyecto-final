@@ -1,0 +1,15 @@
+.button-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    gap:2rem; width:20% ;
+}
+.register-container{
+  
+    flex-direction: column;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
