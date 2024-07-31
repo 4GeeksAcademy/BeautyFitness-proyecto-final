@@ -19,7 +19,10 @@ import ProfileExperienceLevel from"./pages/profileExperienceLevel";
 import ProfileObjetive from "./pages/profileObjetive";
 import TrainingDays from "./pages/trainingDays";
 import Routine from "./pages/routine";
-
+import SuscriptionInfo from "./pages/suscriptionInfo";
+import VideoWorkout from "./pages/videoWorkout";
+import DayRoutine from "./pages/dayRoutine";
+import Day from "./pages/day";
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -45,7 +48,11 @@ const Layout = () => {
                         <Route element={<WorkoutList />} path="/workoutList" /> 
                         <Route element={<ProfileExperienceLevel  />} path="/profileExperienceLevel" />
                         <Route element={<ProfileObjetive  />} path="/profileObjetive" />
+                        <Route element={<Day />} path="/day" />
                         <Route element={<TrainingDays />} path="/trainingDays" />
+                        <Route element={<DayRoutine />} path="/dayRoutine" />
+                        <Route element={<VideoWorkout />} path="/videoWorkout" />
+                        <Route element={<SuscriptionInfo />} path="/suscriptionVideo" />
                         <Route element={<Routine  />} path="/routine" />
                         <Route element={<h1>Not found!</h1>} path="*" /> {/* Añadido path="*" */}
                     </Routes>  
