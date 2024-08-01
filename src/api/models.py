@@ -35,7 +35,7 @@ class User(db.Model):
 
 class ExperienceLevel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    level_name = db.Column(db.String(50), nullable=False)
+    level_name = db.Column(db.String(50),  nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 class TrainingDays(db.Model):

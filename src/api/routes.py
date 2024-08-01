@@ -27,6 +27,7 @@ def handle_hello():
 @api.route('/experience_levels', methods=['POST'])
 def create_experience_level():
     data = request.get_json()
+    levels = ['beginner', 'intermediate', 'advanced']
     new_experience_level = ExperienceLevel(
         level_name=data['level_name'],
         user_id=data['user_id']

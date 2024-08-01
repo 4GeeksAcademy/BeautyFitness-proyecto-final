@@ -17,9 +17,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+			
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+				fetchExperienceLevels();
 			},
+			// Función para cargar los niveles de experiencia desde el backend
+			fetchExperienceLevels : async () => {
+				try {
+				  const response = await fetch('https://animated-chainsaw-69vv45xwxxvw35jg6-3001.app.github.dev/api/experience_levels')
+
+				  const data = await response.json();
+				  setExperienceLevels(data);
+				} catch (error) {
+				  console.error('Error fetching experience levels:', error);
+				}
+			  },
 
 			getMessage: async () => {
 				try{
