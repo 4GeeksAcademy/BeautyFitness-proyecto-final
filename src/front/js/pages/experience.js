@@ -2,23 +2,22 @@ import React, { useState, useEffect } from 'react';
 
 
 export const Experience = () => {
-  const [experienceLevels, setExperienceLevels] = useState([]);
   const [selectedExperience, setSelectedExperience] = useState('');
   const [userId, setUserId] = useState('');
-  const [level, setLevel] = useState(['beginner', 'intermediate', 'advanced'])
+  const levels = ['beginner', 'intermediate', 'advanced'];
 
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLevel(level).e.preventDefault.value
+    
 
     const data = {
 
       user_id: userId,
       level_name: selectedExperience
     }
-    console.log(selectedExperience);
+    console.log(data);
   };
 
   return (
@@ -32,9 +31,9 @@ export const Experience = () => {
           onChange={(e) => setSelectedExperience(e.target.value)}
         >
           <option value=''>Select an experience level</option>
-          {level?.map((level) => (
-            <option key={level.id} value={level.level_name}>
-              {level.level_name}
+          {levels?.map((level) => (
+            <option key={level} value={level}>
+              {level}
             </option>
           ))}
         </select>
