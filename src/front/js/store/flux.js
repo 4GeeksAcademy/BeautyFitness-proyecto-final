@@ -25,7 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Función para cargar los niveles de experiencia desde el backend
 			fetchExperienceLevels : async () => {
 				try {
-				  const response = await fetch('https://animated-chainsaw-69vv45xwxxvw35jg6-3001.app.github.dev/api/experience_levels')
+				  const response = await fetch('https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/experience_levels')
 
 				  const data = await response.json();
 				  setExperienceLevels(data);
