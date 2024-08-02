@@ -70,11 +70,12 @@ class User(db.Model):
     weight = db.Column(db.Float, nullable=True)
     height = db.Column(db.Float, nullable=True)
     registration_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    
+    experience = db.relationship('ExperienceLevel', backref='user', lazy=True)
+    training = db.relationship('TrainingDays', backref='user', lazy=True)
     goals = db.relationship('Goal', backref='user', lazy=True)
-    training_days = db.relationship('TrainingDays', backref='user', lazy=True)
-    calorie_logs = db.relationship('UserCalorieLog', backref='user', lazy=True)
+    calorie_logs = db.relationship('CalorieLog', backref='user', lazy=True)
     progress = db.relationship('UserProgress', backref='user', lazy=True)
-    experience_levels = db.relationship('ExperienceLevel', backref='user', lazy=True)
     workouts = db.relationship('Workout', backref='user', lazy=True)
 
     def __repr__(self):
@@ -113,11 +114,12 @@ class User(db.Model):
             "weight": self.weight,
             "height": self.height,
             "registration_date": self.registration_date,
+            # do not serialize the password, its a security breach
         }
 
-class Goal(db.Model):
+class ExperienceLevel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    goal_name = db.Column(db.String(50), nullable=False)
+    level_name = db.Column(db.String(50),  nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 class TrainingDays(db.Model):
@@ -126,14 +128,19 @@ class TrainingDays(db.Model):
     days = db.Column(db.String(100), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-class UserCalorieLog(db.Model):
+class Goal(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    goal_name = db.Column(db.String(50), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    progress = db.relationship('UserProgress', backref='goal', lazy=True)
+
+class CalorieLog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     date = db.Column(db.Date, nullable=False)
-    routine_calories_burned = db.Column(db.Integer, nullable=False)
+    routine_calories_burned = db.Column(db.Integer, db.ForeignKey('routine_activity.id'), nullable=False)
     calories_consumed = db.Column(db.Integer, nullable=False)
     calories_balance = db.Column(db.Integer, nullable=False)
-    routine_activity_id = db.Column(db.Integer, db.ForeignKey('routine_activity.id'), nullable=True)
 
 class UserProgress(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -144,17 +151,12 @@ class UserProgress(db.Model):
     experience_level_id = db.Column(db.Integer, db.ForeignKey('experience_level.id'), nullable=False)
     training_days_id = db.Column(db.Integer, db.ForeignKey('training_days.id'), nullable=False)
 
-class ExperienceLevel(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    level_name = db.Column(db.String(50), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
 class Workout(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    routine_name = db.Column(db.String(100), nullable=False)
+    routine_name = db.Column(db.String(50), nullable=False)
     routine_type = db.Column(db.String(50), nullable=False)
-    creation_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    creation_date = db.Column(db.Date, nullable=False)
     routine_activities = db.relationship('RoutineActivity', backref='workout', lazy=True)
 
 class RoutineActivity(db.Model):
@@ -162,12 +164,12 @@ class RoutineActivity(db.Model):
     workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'), nullable=False)
     exercise_id = db.Column(db.Integer, db.ForeignKey('exercise.id'), nullable=False)
     date = db.Column(db.Date, nullable=False)
-    day_of_the_week = db.Column(db.String(50), nullable=False)
+    days_of_the_week = db.Column(db.String(50), nullable=False)
     sets = db.Column(db.Integer, nullable=False)
     reps = db.Column(db.Integer, nullable=False)
-    weight_used = db.Column(db.Float, nullable=False)
-    duration = db.Column(db.Time, nullable=False)
-    calories_burned = db.Column(db.Integer, nullable=False)
+    weight_used = db.Column(db.Integer, nullable=False)
+    duration = db.Column(db.Integer, nullable=False)
+    calories_burned = db.relationship('CalorieLog', backref='routine_activity', lazy=True)
 
 class Exercise(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -175,4 +177,4 @@ class Exercise(db.Model):
     description = db.Column(db.String(255), nullable=False)
     muscle_group = db.Column(db.String(50), nullable=False)
     video_url = db.Column(db.String(255), nullable=False)
-    routine_activities = db.relationship('RoutineActivity', backref='exercise', lazy=True)
+    routine_exercises = db.relationship('RoutineActivity', backref='exercise', lazy=True)
