@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
+
 import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
 import injectContext from "./store/appContext";
@@ -14,7 +14,7 @@ import { Footer } from "./component/footer";
 import { UpdateProfile } from "./pages/updateProfile";
 
 import Profile from"./pages/profile";
-import Single from "./pages/single"; // Importa el componente Single
+
 import Workout from "./pages/workout"; // Importa el componente Workout
 import WorkoutList from "./pages/workoutList"; // Importa el componente WorkoutList
 import ProfileExperienceLevel from"./pages/profileExperienceLevel";
@@ -25,6 +25,7 @@ import SuscriptionInfo from "./pages/suscriptionInfo";
 import VideoWorkout from "./pages/videoWorkout";
 import DayRoutine from "./pages/dayRoutine";
 import Day from "./pages/day";
+import Single from "./pages/single";
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -37,7 +38,7 @@ const Layout = () => {
         <div className="bg-dark text-light h-100">
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
-                    <NavBar /> {/* Descomentado para que el Navbar se muestre */}
+                    <Navbar /> {/* Descomentado para que el Navbar se muestre */}
                     <Routes>
                         <Route element={<Home />} path="/" /> 
                         <Route element={<Profile />} path="/profile" />
