@@ -7,7 +7,7 @@ export const SignIn = () => {
      
       <main>
         <h1>Sign In Page</h1>
-        <FormSignIn />
+         <FormSignIn /> 
       </main>
       
     </div>
