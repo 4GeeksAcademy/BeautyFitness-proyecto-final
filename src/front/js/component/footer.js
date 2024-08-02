@@ -15,8 +15,3 @@ export const Footer = () => {
     </footer>
   );
 };
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 127ed65779d5d753c96a7f93f6c13e7f25e2d99f

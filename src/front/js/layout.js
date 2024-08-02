@@ -4,11 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-<<<<<<< HEAD
-
-=======
 // import { Demo } from "./pages/demo";
->>>>>>> 127ed65779d5d753c96a7f93f6c13e7f25e2d99f
 import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
 import injectContext from "./store/appContext";
@@ -18,11 +14,7 @@ import { Footer } from "./component/footer";
 import { UpdateProfile } from "./pages/updateProfile";
 
 import Profile from"./pages/profile";
-<<<<<<< HEAD
-
-=======
 import {Single} from "./pages/single"; // Importa el componente Single
->>>>>>> 127ed65779d5d753c96a7f93f6c13e7f25e2d99f
 import Workout from "./pages/workout"; // Importa el componente Workout
 import WorkoutList from "./pages/workoutList"; // Importa el componente WorkoutList
 import ProfileExperienceLevel from"./pages/profileExperienceLevel";
@@ -33,7 +25,7 @@ import SuscriptionInfo from "./pages/suscriptionInfo";
 import VideoWorkout from "./pages/videoWorkout";
 import DayRoutine from "./pages/dayRoutine";
 import Day from "./pages/day";
-import Single from "./pages/single";
+// import Single from "./pages/single";
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
