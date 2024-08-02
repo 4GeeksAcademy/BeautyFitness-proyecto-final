@@ -46,7 +46,7 @@ const Layout = () => {
                         <Route element={<Single />} path="/single" /> {/* Asegúrate de que esta ruta sea única */}
                         <Route element={<Workout />} path="/workout" /> 
                         <Route element={<WorkoutList />} path="/workoutList" /> 
-                        <Route element={<ProfileExperienceLevel  />} path="/profileExperienceLevel" />
+                        <Route element={<ProfileExperienceLevel  />} path="/profileexperiencelevel" />
                         <Route element={<ProfileObjetive  />} path="/profileObjetive" />
                         <Route element={<Day />} path="/day" />
                         <Route element={<TrainingDays />} path="/trainingDays" />

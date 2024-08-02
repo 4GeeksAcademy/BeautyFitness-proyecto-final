@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export const ProfileCard = () => {
   return (
@@ -21,7 +22,9 @@ export const ProfileCard = () => {
     <li class="list-group-item">Height</li>
     <li class="list-group-item">Weight</li>
   </ul>
+  <Link to="/profileExperienceLevel">
   <button type="button" class="btn btn-success mb-20">Continue</button>
+  </Link>
           </div>
        </div>
          {/*<div className="container footer border-top" style={{ padding: "10px" }}>

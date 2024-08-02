@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => { return (
   <nav className="navbar navbar-expand-lg bg-secondary mb-20">
@@ -21,7 +22,9 @@ export const NavBar = () => { return (
       <div className="collapse navbar-collapse btn-secondary mt-20" id="navbarNavAltMarkup">
         <div className="navbar-nav ms-auto">
           <a className="nav-link active" aria-current="page" href="#"></a>
+          <Link to="signIn">
           <button type="submit" class="btn btn-primary">Sign in</button>
+          </Link>
           <button type="submit" class="btn btn-primary ms-3">Register</button>
         </div>
       </div>
