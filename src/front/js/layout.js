@@ -8,11 +8,8 @@ import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
 import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { UpdateProfile } from "./pages/updateProfile";
-
 import Profile from"./pages/profile";
 import {Single} from "./pages/single"; // Importa el componente Single
 import Workout from "./pages/workout"; // Importa el componente Workout
@@ -25,6 +22,7 @@ import SuscriptionInfo from "./pages/suscriptionInfo";
 import VideoWorkout from "./pages/videoWorkout";
 import DayRoutine from "./pages/dayRoutine";
 import Day from "./pages/day";
+import { Navbar } from "./component/navbar";
 // import Single from "./pages/single";
 //create your first component
 const Layout = () => {
