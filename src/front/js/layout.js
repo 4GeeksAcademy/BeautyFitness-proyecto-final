@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
+// import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
 import injectContext from "./store/appContext";
@@ -17,7 +17,7 @@ import Profile from"./pages/profile";
 import Single from "../js/pages/single"; // Importa el componente Single
 import Workout from "./pages/workout"; // Importa el componente Workout
 import WorkoutList from "./pages/workoutList"; // Importa el componente WorkoutList
-import ProfileExperienceLevel from"./pages/profileExperienceLevel";
+import ProfileExperienceLevel from"../js/pages/profileExperienceLevel";
 import ProfileObjetive from "./pages/profileObjetive";
 import TrainingDays from "./pages/trainingDays";
 import Routine from "./pages/routine";
@@ -37,7 +37,7 @@ const Layout = () => {
         <div className="bg-dark text-light h-100">
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
-                    <NavBar /> {/* Descomentado para que el Navbar se muestre */}
+                    <Navbar /> {/* Descomentado para que el Navbar se muestre */}
                     <Routes>
                         <Route element={<Home />} path="/" /> 
                         <Route element={<Profile />} path="/profile" />

@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, ExperienceLevel
+from api.models import db, User, ExperienceLevel, TrainingDays, Goal
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token,get_jwt_identity,jwt_required
@@ -72,11 +72,13 @@ def update_user(user_id):
 
 
 @api.route('/experience_levels', methods=['POST'])
+@jwt_required()
 def create_experience_level():
+    user_id = get_jwt_identity()
     data = request.get_json()
     new_experience_level = ExperienceLevel(
         level_name=data['level_name'],
-        user_id=data['user_id']
+        user_id=['user_id']
     )
     db.session.add(new_experience_level)
     db.session.commit()
@@ -85,6 +87,7 @@ def create_experience_level():
 @api.route('/experience_levels', methods=['GET'])
 @jwt_required()
 def get_experience_levels():
+    user_id = get_jwt_identity()
     experience_levels = ExperienceLevel.query.all()
     result = [
         {
@@ -97,7 +100,9 @@ def get_experience_levels():
     return jsonify(result), 200
 
 @api.route('/experience_levels/<int:id>', methods=['GET'])
+@jwt_required()
 def get_experience_level(id):
+    user_id = get_jwt_identity()
     experience_level = ExperienceLevel.query.get_or_404(id)
     result = {
         "id": experience_level.id,
@@ -107,7 +112,9 @@ def get_experience_level(id):
     return jsonify(result), 200
 
 @api.route('/experience_levels/<int:id>', methods=['PUT'])
+@jwt_required()
 def update_experience_level(id):
+    user_id = get_jwt_identity()
     data = request.get_json()
     experience_level = ExperienceLevel.query.get_or_404(id)
     experience_level.level_name = data['level_name']
@@ -116,21 +123,98 @@ def update_experience_level(id):
     return jsonify({"message": "Experience level updated successfully"}), 200
 
 @api.route('/experience_levels/<int:id>', methods=['DELETE'])
+@jwt_required()
 def delete_experience_level(id):
+    user_id = get_jwt_identity()
     experience_level = ExperienceLevel.query.get_or_404(id)
     db.session.delete(experience_level)
     db.session.commit()
     return jsonify({"message": "Experience level deleted successfully"}), 200
 
 
-@api.route('/goals', methods=['POST','GET'])
-def goalsworkout():
-    
-    response_body = {
-        "message": " I'm a message "
-    }
+@api.route('/training-days', methods=['POST'])
+@jwt_required()
+def add_training_days():
+    user_id = get_jwt_identity()
+    data = request.get_json()
 
-    return jsonify(response_body), 200
+    number_of_days = data.get('number_of_days')
+    days = data.get('days')
+
+    if not number_of_days or not days:
+        return jsonify({'message': 'Number of days and days are required'}), 400
+
+    training_days = TrainingDays(
+        number_of_days=number_of_days,
+        days=days,
+        user_id=user_id
+    )
+
+    db.session.add(training_days)
+    db.session.commit()
+
+    return jsonify({'message': 'Training days added successfully'}), 201
+
+@api.route('/training-days', methods=['GET'])
+@jwt_required()
+def get_training_days():
+    user_id = get_jwt_identity()
+    training_days = TrainingDays.query.filter_by(user_id=user_id).all()
+    
+    if not training_days:
+        return jsonify({'message': 'No training days found'}), 404
+    
+    result = []
+    for day in training_days:
+        result.append({
+            'id': day.id,
+            'number_of_days': day.number_of_days,
+            'days': day.days
+        })
+    
+    return jsonify(result), 200
+
+
+
+
+@api.route('/goals', methods=['POST'])
+@jwt_required()
+def add_goals():
+    user_id = get_jwt_identity()
+    data = request.get_json()
+
+    goals = data.get('goals')
+
+    if not goals or len(goals) < 3:
+        return jsonify({'message': 'You must provide at least 3 goals'}), 400
+
+    goal_objects = []
+    for goal_name in goals:
+        goal = Goal(goal_name=goal_name, user_id=user_id)
+        goal_objects.append(goal)
+    
+    db.session.add_all(goal_objects)
+    db.session.commit()
+
+    return jsonify({'message': 'Goals added successfully'}), 201
+
+@api.route('/goals', methods=['GET'])
+@jwt_required()
+def get_goals():
+    user_id = get_jwt_identity()
+    goals = Goal.query.filter_by(user_id=user_id).all()
+    
+    if not goals:
+        return jsonify({'message': 'No goals found'}), 404
+    
+    result = []
+    for goal in goals:
+        result.append({
+            'id': goal.id,
+            'goal_name': goal.goal_name
+        })
+    
+    return jsonify(result), 200
 
 
 

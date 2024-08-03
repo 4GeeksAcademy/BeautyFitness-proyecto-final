@@ -27,17 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 				fetchExperienceLevels();
 			},
-			// Función para cargar los niveles de experiencia desde el backend
-			fetchExperienceLevels : async () => {
-				try {
-				  const response = await fetch('https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/experience_levels')
-
-				  const data = await response.json();
-				  setExperienceLevels(data);
-				} catch (error) {
-				  console.error('Error fetching experience levels:', error);
-				}
-			  },
+			
 
 			// Obtener token y usuario de localStorage y actualizar store
 			// Obtener token y usuario de localStorage y actualizar store
@@ -168,7 +158,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem('token');
 				localStorage.removeItem('user');
 				setStore({ token: null, user: null });
-			},			
+			},	
+			
+			// Función para cargar los niveles de experiencia desde el backend
+			fetchExperienceLevels : async () => {
+				const store = getStore()
+				if (!store.user || !store.token) {
+					Swal.fire({
+						icon: "error",
+						title: "User not logged in",
+						text: "Please log in first",
+					});
+					return;
+				}
+				try {
+				  const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/${store.user.id}`, {
+					method:'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': `Bearer ${token}`
+					  }
+				  })
+
+				  if (!response.ok) {
+					throw new Error('response was not ok');
+				  }
+				  
+				
+				  const data = await response.json();
+				  setExperienceLevels(data);
+				} catch (error) {
+				  console.error('Error fetching experience levels:', error);
+				}
+			  },
 
 			getMessage: async () => {
 				const store = getStore();
@@ -185,6 +207,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error);
 				}
 			},
+
+
 			
 
 			// getMessage: async () => {
