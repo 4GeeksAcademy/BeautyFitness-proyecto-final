@@ -81,7 +81,7 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.email}>'
 
-    def generate_password(self, password):
+    def generate_password_hash(self, password):
         return bcrypt.generate_password_hash(password).decode('utf-8')
 
     def check_password(self, password):
