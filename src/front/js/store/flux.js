@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Acción de inicio de sesión
 			login: async (email, password) => {
 				try {
-					const response = await fetch("https://friendly-space-pancake-g4xxvjw4qj57fppxr-3001.app.github.dev/api/login", {
+					const response = await fetch("https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/login", {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json"
@@ -75,7 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			register: async (name, surname, email, username, password) => {
                 try {
-                    const response = await fetch("https://friendly-space-pancake-g4xxvjw4qj57fppxr-3001.app.github.dev/api/register", {
+                    const response = await fetch("https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/register", {
                         method: "POST",
                         headers: {
                             "content-Type": "application/json"
@@ -120,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				
 				try {
-					const response = await fetch(`https://friendly-space-pancake-g4xxvjw4qj57fppxr-3001.app.github.dev/api/user/${store.user.id}`, {
+					const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/user/${store.user.id}`, {
 						method: "PUT",
 						headers: {
 							"Content-Type": "application/json",
