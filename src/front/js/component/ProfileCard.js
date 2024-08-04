@@ -60,9 +60,17 @@ export const ProfileCard = () => {
                 />
               </div>
    </form>
+   <div className="text-center mb-5">
+        <div className="d-flex justify-content-center gap-3">
+        <Link to="/signup">
+          <button type="button" className="d-flex btn btn-secondary w-100 mr-1 mt-4">Back</button>
+        </Link>
+        <div className="text-center ml-5"></div>
   <Link to="/suscriptionInfo">
   <button type="button" class="btn btn-success d-flex mx-auto d-block justify-content-center mt-4">Continue</button>
   </Link>
+          </div>
+          </div>
           </div>
        </div>
          {/*<div className="container footer border-top" style={{ padding: "10px" }}>

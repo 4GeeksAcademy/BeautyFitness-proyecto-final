@@ -21,7 +21,21 @@ const Routine= () => {
         <Link to="/trainingDays">
         <button type="button" class="btn btn-secondary w-100">Select routine</button>
         </Link>
+
+        <div className="text-center mb-5">
+        <div className="d-flex justify-content-center gap-3">
+        <Link to="/profileExperienceLevel">
+          <button type="button" className="d-flex btn btn-secondary w-100 mr-1">Back</button>
+        </Link>
+        <div className="text-center ml-5"></div>
         </div>
+        
+        </div>
+        
+
+
+        </div>
+        
       </main>
     
     </div>

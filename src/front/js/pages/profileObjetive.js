@@ -12,10 +12,17 @@ const ProfileObjetive = () => {
           <button type="button" class="btn btn-secondary">HYPERTROPHY</button>
           <button type="button" class="btn btn-secondary">WEIGHTLOSS</button>
           <button type="button" class="btn btn-secondary">MUSCLE DEFINITION</button>
+
+          <div className="text-center mb-5">
+        <div className="d-flex justify-content-center gap-3">
+        <Link to="/suscriptionInfo">
+          <button type="button" className="d-flex btn btn-secondary w-100 mr-1">Back</button>
+        </Link>
+        <div className="text-center ml-5"></div>
           <Link to="/profileExperienceLevel">
             <button type="button" class="btn btn-success w-100 ">Continue</button>
           </Link>
-        </div>
+        </div> </div> </div>
       </main>
 
     </div>

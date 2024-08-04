@@ -1,46 +1,3 @@
-// import React from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-// export const ProfileSuscription = () => {
-//   return (
-//     <div className="col-xl">
-//       <div className="card mb-5 mt-4 mx-auto" style={{ width: "36rem" }}>
-//         <div className="align-items-text-center" style={{ padding: "10px" }}>
-//           <div className= "text-center">
-//           <img 
-//             src="https://picsum.photos/200" 
-//             className="card-img-top img-fluid mx-auto d-bloxk mt-4" 
-//             alt="..." 
-//             style={{ borderRadius: "50%", width: "100px", height: "100px", objectFit: "cover"}} 
-//           />
-//           </div>
-//           <div className="card-body">
-//             <FontAwesomeIcon icon="fa-regular fa-star" />
-//             <h5 className="card-title text-center">Personal Data</h5>
-
-//             <ul class="list-group list-group-flush">
-//                 <li class="list-group-item">Username</li>
-//                 <li class="list-group-item">Password</li>
-//                 <li class="list-group-item">Gender</li>
-//                 <li class="list-group-item">Age</li>
-//                 <li class="list-group-item">Height</li>
-//                 <li class="list-group-item">Weight</li>
-//                 <li class="list-group-item">Suscription</li>
-//                 <li class="list-group-item">Goals</li>
-//             </ul>
-//               <button type="button" class="btn btn-success d-flex mx-auto d-block justify-content-center mt-1">Continue</button>
-//           </div>
-//        </div>
-//          {/*<div className="container footer border-top" style={{ padding: "10px" }}>
-//           <a href="#" className="btn btn-info mt-3 d-flex justify-content-center">
-//             Find Out More!
-//           </a>
-//         </div>*/}
-//       </div>
-//     </div>
-//   );
-// };
-//
 
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -73,22 +30,22 @@ export const ProfileSuscription = () => {
 
   return (
     <div className="col-xl">
-      <div className="card mb-1 mt-1 mx-auto" style={{ width: "36rem", minHeight: "500px"}}>
+      <div className="card mb-1 mt-1 mx-auto" style={{ width: "36rem", minHeight: "200px"}}>
         <div className="text-center" style={{ padding: "10px" }}>
           <img 
             src="https://picsum.photos/200" 
-            className="card-img-top img-fluid mx-auto d-block mt-4" 
+            className="card-img-top img-fluid mx-auto d-block mt-0" 
             alt="Profile" 
             style={{ borderRadius: "50%", width: "100px", height: "100px", objectFit: "cover"}} 
           />
         </div>
-        <div className="card-body">
+        <div className="card-body mt-1">
           <FontAwesomeIcon icon="fa-regular fa-star" />
           <h5 className="card-title text-center">Personal Data</h5>
 
           <formData>
-            <div className="mb-1">
-              <label htmlFor="username" className="form-label">Username</label>
+            <div className="mb-1 ">
+              <label htmlFor="username" className="form-label mt-1">Username</label>
               <input
                 type="text"
                 className="form-control"
@@ -190,13 +147,20 @@ export const ProfileSuscription = () => {
                 placeholder="Enter your goals"
               />
             </div>
-
+            <div className="text-center mb-5">
+        <div className="d-flex justify-content-center gap-3">
+        <Link to="/signup">
+          <button type="button" className="d-flex btn btn-secondary w-100 mr-1 mt-3">Back</button>
+        </Link>
+        <div className="text-center ml-5"></div>
             <Link to="/profileObjetive" >
             <button
               type="button"
               className="btn btn-success d-flex mx-auto d-block justify-content-center mt-3"
             >Continue</button>
-            </Link>
+            </Link>  
+            </div>  
+            </div>
           </formData>
         </div>
       </div>

@@ -11,7 +11,7 @@ import { Footer } from "./component/footer";
 import { UpdateProfile } from "./pages/updateProfile";
 import Profile from"./pages/profile";
 import {Single} from "./pages/single"; // Importa el componente Single
-import Workout from "./pages/workout"; // Importa el componente Workout
+
 import WorkoutList from "./pages/workoutList"; // Importa el componente WorkoutList
 import ProfileExperienceLevel from"./pages/profileExperienceLevel";
 import ProfileObjetive from "./pages/profileObjetive";
@@ -24,6 +24,9 @@ import Day from "./pages/day";
 import { Navbar } from "./component/navbar";
 import SignIn from "./pages/signIn";
 import SuscriptionInfo from "./pages/suscriptionInfo"
+import Workout from "./pages/workout";
+
+
 // import Single from "./pages/single";
 //create your first component
 const Layout = () => {
@@ -47,7 +50,7 @@ const Layout = () => {
                         <Route element={<UpdateProfile />} path="/update-profile" />
                         <Route element={<Single />} path="/single" /> {/* Asegúrate de que esta ruta sea única */}
                         {/* <Route element={<Single />} path="/single/:theid" /> */}
-                        <Route element={<Workout />} path="/workout" /> 
+                        <Route element={<Workout />} path="/workout" />
                         <Route element={<WorkoutList />} path="/workoutList" /> 
                         <Route element={<ProfileExperienceLevel  />} path="/profileexperiencelevel" />
                         <Route element={<ProfileObjetive  />} path="/profileObjetive" />
