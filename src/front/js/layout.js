@@ -9,6 +9,8 @@ import { Login } from "./pages/login";
 import { SignUp } from "./pages/signUp";
 import injectContext from "./store/appContext";
 
+import { ForgotPassword } from "./pages/forgotPassword";
+import { ResetPassword } from "./pages/resetPassword";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { UpdateProfile } from "./pages/updateProfile";
@@ -25,6 +27,8 @@ import SuscriptionInfo from "./pages/suscriptionInfo";
 import VideoWorkout from "./pages/videoWorkout";
 import DayRoutine from "./pages/dayRoutine";
 import Day from "./pages/day";
+import { Exercices } from "./pages/exercices";
+
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -44,7 +48,10 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<SignUp />} path="/signup" />
                         <Route element={<UpdateProfile />} path="/update-profile" />
-                        <Route element={<Single />} path="/single" /> {/* Asegúrate de que esta ruta sea única */}
+                        <Route element={<Single />} path="/single" />
+                        <Route element={<ForgotPassword />} path="/forgot-password" />
+                        <Route element={<ResetPassword />} path="/reset-password" />
+                        <Route element={<Exercices />} path="/exercices" />
                         {/* <Route element={<Single />} path="/single/:theid" /> */}
                         <Route element={<Workout />} path="/workout" /> 
                         <Route element={<WorkoutList />} path="/workoutList" /> 
