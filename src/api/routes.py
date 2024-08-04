@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, ExperienceLevel, TrainingDays, Goal
+from api.models import db, User, ExperienceLevel, TrainingDays, Goal, CalorieLog, UserProgress
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token,get_jwt_identity,jwt_required
@@ -78,7 +78,7 @@ def create_experience_level():
     data = request.get_json()
     new_experience_level = ExperienceLevel(
         level_name=data['level_name'],
-        user_id=['user_id']
+        user_id='user_id'
     )
     db.session.add(new_experience_level)
     db.session.commit()
@@ -215,6 +215,132 @@ def get_goals():
         })
     
     return jsonify(result), 200
+
+@api.route('/calorie-logs', methods=['POST'])
+@jwt_required()
+def add_calorie_log():
+    user_id = get_jwt_identity()
+    data = request.get_json()
+
+    date_str = data.get('date')
+    date_obj = date.fromisoformat(date_str)
+    routine_calories_burned = data.get('routine_calories_burned')
+    calories_consumed = data.get('calories_consumed')
+    calories_balance = data.get('calories_balance')
+
+    if not date_str or routine_calories_burned is None or calories_consumed is None or calories_balance is None:
+        return jsonify({'message': 'All fields are required'}), 400
+
+    new_log = CalorieLog(
+        user_id=user_id,
+        date=date_obj,
+        routine_calories_burned=routine_calories_burned,
+        calories_consumed=calories_consumed,
+        calories_balance=calories_balance
+    )
+
+    db.session.add(new_log)
+    db.session.commit()
+
+    return jsonify({'message': 'Calorie log added successfully'}), 201
+
+@api.route('/calorie-logs', methods=['GET'])
+@jwt_required()
+def get_calorie_logs():
+    user_id = get_jwt_identity()
+    calorie_logs = CalorieLog.query.filter_by(user_id=user_id).all()
+
+    if not calorie_logs:
+        return jsonify({'message': 'No calorie logs found'}), 404
+
+    result = []
+    for log in calorie_logs:
+        result.append({
+            'id': log.id,
+            'date': log.date.isoformat(),
+            'routine_calories_burned': log.routine_calories_burned,
+            'calories_consumed': log.calories_consumed,
+            'calories_balance': log.calories_balance
+        })
+
+    return jsonify(result), 200
+
+@api.route('/calorie-logs/<int:log_id>', methods=['PUT'])
+@jwt_required()
+def update_calorie_log(log_id):
+    user_id = get_jwt_identity()
+    log = CalorieLog.query.get_or_404(log_id)
+
+    if log.user_id != user_id:
+        return jsonify({'message': 'Permission denied'}), 403
+
+    data = request.get_json()
+    log.date = date.fromisoformat(data.get('date', log.date.isoformat()))
+    log.routine_calories_burned = data.get('routine_calories_burned', log.routine_calories_burned)
+    log.calories_consumed = data.get('calories_consumed', log.calories_consumed)
+    log.calories_balance = data.get('calories_balance', log.calories_balance)
+
+    db.session.commit()
+
+    return jsonify({'message': 'Calorie log updated successfully'}), 200
+
+@api.route('/user-progress', methods=['GET'])
+@jwt_required()
+def get_user_progress():
+    user_id = get_jwt_identity()
+    progress_records = UserProgress.query.filter_by(user_id=user_id).all()
+
+    if not progress_records:
+        return jsonify({'message': 'No user progress found'}), 404
+
+    result = []
+    for record in progress_records:
+        result.append({
+            'id': record.id,
+            'date': record.date.isoformat(),
+            'weight': record.weight,
+            'goal_id': record.goal_id,
+            'experience_level_id': record.experience_level_id,
+            'training_days_id': record.training_days_id
+        })
+
+    return jsonify(result), 200
+
+@api.route('/user-progress/<int:progress_id>', methods=['PUT'])
+@jwt_required()
+def update_user_progress(progress_id):
+    user_id = get_jwt_identity()
+    progress_record = UserProgress.query.get_or_404(progress_id)
+
+    if progress_record.user_id != user_id:
+        return jsonify({'message': 'Permission denied'}), 403
+
+    data = request.get_json()
+    progress_record.date = date.fromisoformat(data.get('date', progress_record.date.isoformat()))
+    progress_record.weight = data.get('weight', progress_record.weight)
+    progress_record.goal_id = data.get('goal_id', progress_record.goal_id)
+    progress_record.experience_level_id = data.get('experience_level_id', progress_record.experience_level_id)
+    progress_record.training_days_id = data.get('training_days_id', progress_record.training_days_id)
+
+    db.session.commit()
+
+    return jsonify({'message': 'User progress updated successfully'}), 200
+
+@api.route('/user-progress/<int:progress_id>', methods=['DELETE'])
+@jwt_required()
+def delete_user_progress(progress_id):
+    user_id = get_jwt_identity()
+    progress_record = UserProgress.query.get_or_404(progress_id)
+
+    if progress_record.user_id != user_id:
+        return jsonify({'message': 'Permission denied'}), 403
+
+    db.session.delete(progress_record)
+    db.session.commit()
+
+    return jsonify({'message': 'User progress deleted successfully'}), 200
+
+
 
 
 

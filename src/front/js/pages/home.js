@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Card } from "../component/Card";
+import ProfileExperienceLevel from "./profileExperienceLevel";
+
 //import Footer from "../component/footer";
 //import { NavBar } from "../component/navBar";
 
@@ -18,6 +20,7 @@ export const Home = () => {
     return (
       <div>
         <div className="row align-center">
+          
           <Card />
           <Card />
           <Card />

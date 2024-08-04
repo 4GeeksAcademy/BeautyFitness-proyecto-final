@@ -176,7 +176,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method:'POST',
 					headers: {
 						'Content-Type': 'application/json',
-						'Authorization': `Bearer ${token}`
+						'Authorization': `Bearer ${store.token}`
 					  }
 				  })
 
@@ -192,6 +192,214 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			  },
 
+
+			updateExperienceLevel : async (id, levelName, userId) => {
+				const store = getStore();
+			
+				if (!store.user || !store.token) {
+					Swal.fire({
+						icon: "error",
+						title: "User not logged in",
+						text: "Please log in first",
+					});
+					return;
+				}
+			
+				try {
+					const response = await fetch(
+						`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/experience_levels/${id}`, 
+						{
+							method: 'PUT',
+							headers: {
+								'Content-Type': 'application/json',
+								'Authorization': `Bearer ${store.token}`,
+							},
+							body: JSON.stringify({
+								level_name: levelName,
+								user_id: userId
+							})
+						}
+					);
+			
+					if (!response.ok) {
+						throw new Error('Response was not ok');
+					}
+			
+					const data = await response.json();
+					console.log('Experience level updated successfully:', data);
+				} catch (error) {
+					console.error('Error updating experience level:', error);
+				}
+			},
+
+		//fetch post training days
+		addTrainingDays : async (number_of_days, days) => {
+			const store = getStore();
+		
+			if (!store.user || !store.token) {
+				Swal.fire({
+					icon: "error",
+					title: "User not logged in",
+					text: "Please log in first",
+				});
+				return;
+			}
+		
+			try {
+				const response = await fetch(
+					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/training-days`, 
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${store.token}`,
+						},
+						body: JSON.stringify({
+							number_of_days: number_of_days,
+							days: days
+						})
+					}
+				);
+		
+				if (!response.ok) {
+					const errorData = await response.json();
+					throw new Error(errorData.message || 'Response was not ok');
+				}
+		
+				const data = await response.json();
+				console.log('Training days added successfully:', data);
+			} catch (error) {
+				console.error('Error adding training days:', error);
+			}
+		},
+		
+		getTrainingDays : async () => {
+			const store = getStore();
+		
+			if (!store.user || !store.token) {
+				Swal.fire({
+					icon: "error",
+					title: "User not logged in",
+					text: "Please log in first",
+				});
+				return;
+			}
+		
+			try {
+				const response = await fetch(
+					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/training-days`, 
+					{
+						method: 'GET',
+						headers: {
+							'Authorization': `Bearer ${store.token}`,
+						}
+					}
+				);
+		
+				if (!response.ok) {
+					const errorData = await response.json();
+					throw new Error(errorData.message || 'Response was not ok');
+				}
+		
+				const data = await response.json();
+				//settrainingdays
+				console.log('Training days fetched successfully:', data);
+				
+			} catch (error) {
+				console.error('Error fetching training days:', error);
+			}
+		},
+
+		//fetch post goals
+		addGoals : async (goals) => {
+			const store = getStore();
+		
+			if (!store.user || !store.token) {
+				Swal.fire({
+					icon: "error",
+					title: "User not logged in",
+					text: "Please log in first",
+				});
+				return;
+			}
+		
+			if (!goals || goals.length < 3) {
+				Swal.fire({
+					icon: "error",
+					title: "Invalid input",
+					text: "You must provide at least 3 goals",
+				});
+				return;
+			}
+		
+			try {
+				const response = await fetch(
+					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/goals`, 
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${store.token}`,
+						},
+						body: JSON.stringify({
+							goals: goals
+						})
+					}
+				);
+		
+				if (!response.ok) {
+					const errorData = await response.json();
+					throw new Error(errorData.message || 'Response was not ok');
+				}
+		
+				const data = await response.json();
+				console.log('Goals added successfully:', data);
+				//  datos obtenidos
+			} catch (error) {
+				console.error('Error adding goals:', error);
+			}
+		},
+
+		getGoals : async () => {
+			const store = getStore();
+		
+			if (!store.user || !store.token) {
+				Swal.fire({
+					icon: "error",
+					title: "User not logged in",
+					text: "Please log in first",
+				});
+				return;
+			}
+		
+			try {
+				const response = await fetch(
+					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/goals`, 
+					{
+						method: 'GET',
+						headers: {
+							'Authorization': `Bearer ${store.token}`,
+						}
+					}
+				);
+		
+				if (!response.ok) {
+					const errorData = await response.json();
+					throw new Error(errorData.message || 'Response was not ok');
+				}
+		
+				const data = await response.json();
+				console.log('Goals fetched successfully:', data);
+				// datos obtenidos
+			} catch (error) {
+				console.error('Error fetching goals:', error);
+			}
+		},
+		
+		
+		
+			
+			
 			getMessage: async () => {
 				const store = getStore();
 				try {

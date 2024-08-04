@@ -1,9 +1,12 @@
 import React from "react";
 import "../../styles/profileExperienceLevel.css";
+import { UserExperience } from "../component/UserExperience";
+
 
 const ProfileExperienceLevel = () => {
   return (
      <div>
+        <UserExperience />
          <main className="profileExperiencieLevel-container">
         <h1 className="mt-5">Profile Experience</h1>
         <h3>Experience Level</h3>
