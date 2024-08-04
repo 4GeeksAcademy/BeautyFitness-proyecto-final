@@ -1,0 +1,16 @@
+.trainingDays-container{
+    display: flex;
+    flex-direction: column;
+    background-size: 100%;
+    background-color: dark;
+    
+    justify-content: center;
+    align-items: center;
+    width: 110%;
+   
+}
+.container-exercise{
+    border: 1px;
+    color:white;
+
+}

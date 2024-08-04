@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     background-size: 100%;
+    background-color: dark;
     
     justify-content: center;
     align-items: center;
     width: 110%;
-    margin-bottom: 20px;
+   
 }
 .button-container{
     justify-content: center;

@@ -7,9 +7,9 @@ import "../../styles/suscriptionInfo.css";
 
 const SuscriptionInfo = () => {
   return (
-    <main className="profile-container">
+    <main className="profile-container bg-dark">
      <div className="center">
-        <h1 className="mt-5 text-center">Suscription Information</h1>
+        <h1 className="mt-5 text-center">Subscription Information</h1>
         <h3 className="mt-5"></h3>
         <ProfileSuscription />
               

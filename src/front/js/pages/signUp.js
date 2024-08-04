@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const SignUp = () => {
@@ -42,7 +42,9 @@ export const SignUp = () => {
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
+               
                 <button type="submit" className="btn btn-primary">Register</button>
+            
             </form>
         </div>
     );
