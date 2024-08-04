@@ -14,3 +14,12 @@
     align-items: center;
     width: 100%;
 }
+.btn-narrow {
+    width: auto;  
+    max-width: 200px; 
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+}
+.text-center{
+    text-align: center;
+  }

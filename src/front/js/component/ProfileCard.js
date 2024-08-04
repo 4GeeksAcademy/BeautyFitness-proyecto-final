@@ -60,7 +60,7 @@ export const ProfileCard = () => {
                 />
               </div>
    </form>
-  <Link to="/profileExperienceLevel">
+  <Link to="/suscriptionInfo">
   <button type="button" class="btn btn-success d-flex mx-auto d-block justify-content-center mt-4">Continue</button>
   </Link>
           </div>

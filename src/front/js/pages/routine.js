@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/routine.css";
 const Routine= () => {
   return (
@@ -8,11 +9,18 @@ const Routine= () => {
         <h1 className="mt-5">Routine</h1>
        
         <div className="button-container">
-        <button type="button" class="btn btn-secondary">Create routine</button>
-        <button type="button" class="btn btn-secondary">Sugest routine</button>
-        <button type="button" class="btn btn-secondary">Change routine</button>
-        <button type="button" class="btn btn-secondary">Select routine</button>
-       
+        <Link to="/trainingDays">
+        <button type="button" class="btn btn-secondary w-100">Create routine</button>
+        </Link>
+        <Link to="/trainingDays">
+        <button type="button" class="btn btn-secondary w-100">Sugest routine</button>
+        </Link>
+        <Link to="/trainingDays">
+        <button type="button" class="btn btn-secondary w-100">Change routine</button>
+        </Link>
+        <Link to="/trainingDays">
+        <button type="button" class="btn btn-secondary w-100">Select routine</button>
+        </Link>
         </div>
       </main>
     
