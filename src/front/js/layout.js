@@ -23,7 +23,7 @@ import DayRoutine from "./pages/dayRoutine";
 import Day from "./pages/day";
 import { Navbar } from "./component/navbar";
 import SignIn from "./pages/signIn";
-import SuscriptionInfo from "./pages/suscriptionInfo";
+import SuscriptionInfo from "./pages/suscriptionInfo"
 // import Single from "./pages/single";
 //create your first component
 const Layout = () => {
@@ -55,7 +55,7 @@ const Layout = () => {
                         <Route element={<TrainingDays />} path="/trainingDays" />
                         <Route element={<DayRoutine />} path="/dayRoutine" />
                         <Route element={<VideoWorkout />} path="/videoWorkout" />
-                        <Route element={<SuscriptionInfo />} path="/pages/suscriptionInfo" />
+                        <Route element ={<SuscriptionInfo />} path="suscriptioninfo" />
                         <Route element={<Routine  />} path="/routine" />
                         <Route element={<h1>Not found!</h1>} path="*" />
                     </Routes>  

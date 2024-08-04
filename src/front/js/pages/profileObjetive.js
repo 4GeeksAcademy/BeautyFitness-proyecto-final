@@ -13,7 +13,7 @@ const ProfileObjetive = () => {
           <button type="button" class="btn btn-secondary">WEIGHTLOSS</button>
           <button type="button" class="btn btn-secondary">MUSCLE DEFINITION</button>
           <Link to="/profileExperienceLevel">
-            <button type="button" class="btn btn-success w-100 btn-narrow">Continue</button>
+            <button type="button" class="btn btn-success w-100 ">Continue</button>
           </Link>
         </div>
       </main>

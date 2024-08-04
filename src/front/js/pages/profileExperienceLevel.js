@@ -12,7 +12,7 @@ const ProfileExperienceLevel = () => {
         <button type="button" class="btn btn-secondary ">INTERMEDIATE</button>
         <button type="button" class="btn btn-secondary ">ADVANCED</button>
         <Link to="/trainingDays">
-        <button type="button" class="btn btn-success w-100 btn-narrow">Continue</button>
+        <button type="button" class="btn btn-success w-100 ">Continue</button>
         </Link>
         </div>
       </main>

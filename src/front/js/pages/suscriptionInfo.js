@@ -1,7 +1,9 @@
 import React from "react";
-import "../../styles/profile.css";
-
 import { ProfileSuscription } from "../component/ProfileSuscription";
+import "../../styles/profileSuscription.css";
+// import "../../styles/profile.css";
+import "../../styles/suscriptionInfo.css";
+
 
 const SuscriptionInfo = () => {
   return (
@@ -16,12 +18,15 @@ const SuscriptionInfo = () => {
     
   );
 };
-export default SuscriptionInfo
-// export default SuscriptionInfo;
+
+export default SuscriptionInfo;
+
+
+
 // import React, { useState } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// export const Subscriptioninfo = () => {
+// const SuscriptionInfo = () => {
 //   // Estado para los datos del perfil
 //   const [formData, setFormData] = useState({
 //     username: '',
@@ -58,7 +63,7 @@ export default SuscriptionInfo
 //           <FontAwesomeIcon icon="fa-regular fa-star" />
 //           <h5 className="card-title text-center">Personal Data</h5>
 
-//           <form>
+//           <formData>
 //             <div className="mb-3">
 //               <label htmlFor="username" className="form-label">Username</label>
 //               <input
@@ -68,6 +73,7 @@ export default SuscriptionInfo
 //                 name="username"
 //                 value={formData.username}
 //                 onChange={handleChange}
+//                 placeholder="Enter your username"
 //               />
 //             </div>
 
@@ -80,6 +86,7 @@ export default SuscriptionInfo
 //                 name="password"
 //                 value={formData.password}
 //                 onChange={handleChange}
+//                 placeholder="Enter your password"
 //               />
 //             </div>
 
@@ -92,6 +99,7 @@ export default SuscriptionInfo
 //                 name="gender"
 //                 value={formData.gender}
 //                 onChange={handleChange}
+//                 placeholder="Enter your gender"
 //               />
 //             </div>
 
@@ -104,6 +112,7 @@ export default SuscriptionInfo
 //                 name="age"
 //                 value={formData.age}
 //                 onChange={handleChange}
+//                 placeholder="Enter your age"
 //               />
 //             </div>
 
@@ -116,6 +125,7 @@ export default SuscriptionInfo
 //                 name="height"
 //                 value={formData.height}
 //                 onChange={handleChange}
+//                 placeholder="Enter your height"
 //               />
 //             </div>
 
@@ -128,6 +138,7 @@ export default SuscriptionInfo
 //                 name="weight"
 //                 value={formData.weight}
 //                 onChange={handleChange}
+//                 placeholder="Enter your weight"
 //               />
 //             </div>
 
@@ -140,6 +151,7 @@ export default SuscriptionInfo
 //                 name="subscription"
 //                 value={formData.subscription}
 //                 onChange={handleChange}
+//                 placeholder="Enter your subscription"
 //               />
 //             </div>
 
@@ -152,18 +164,19 @@ export default SuscriptionInfo
 //                 name="goals"
 //                 value={formData.goals}
 //                 onChange={handleChange}
+//                 placeholder="Enter your goals"
 //               />
 //             </div>
 
 //             <button
 //               type="button"
 //               className="btn btn-success d-flex mx-auto d-block justify-content-center mt-3"
-//             >
-//               Continue
-//             </button>
-//           </form>
+//             >Continue</button>
+//           </formData>
 //         </div>
 //       </div>
 //     </div>
 //   );
 // };
+
+// export default SuscriptionInfo;

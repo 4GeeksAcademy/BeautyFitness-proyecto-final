@@ -40,8 +40,14 @@
 //     </div>
 //   );
 // };
+//
+
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../styles/profileSuscription.css";
+import "../../styles/suscriptionInfo.css";
+import { Link } from "react-router-dom";
+
 
 export const ProfileSuscription = () => {
   // Estado para los datos del perfil
@@ -67,7 +73,7 @@ export const ProfileSuscription = () => {
 
   return (
     <div className="col-xl">
-      <div className="card mb-5 mt-4 mx-auto" style={{ width: "36rem" }}>
+      <div className="card mb-1 mt-1 mx-auto" style={{ width: "36rem", minHeight: "500px"}}>
         <div className="text-center" style={{ padding: "10px" }}>
           <img 
             src="https://picsum.photos/200" 
@@ -80,8 +86,8 @@ export const ProfileSuscription = () => {
           <FontAwesomeIcon icon="fa-regular fa-star" />
           <h5 className="card-title text-center">Personal Data</h5>
 
-          <form>
-            <div className="mb-3">
+          <formData>
+            <div className="mb-1">
               <label htmlFor="username" className="form-label">Username</label>
               <input
                 type="text"
@@ -94,7 +100,7 @@ export const ProfileSuscription = () => {
               />
             </div>
 
-            <div className="mb-3">
+            <div className="mb-1">
               <label htmlFor="password" className="form-label">Password</label>
               <input
                 type="password"
@@ -107,7 +113,7 @@ export const ProfileSuscription = () => {
               />
             </div>
 
-            <div className="mb-3">
+            <div className="mb-1">
               <label htmlFor="gender" className="form-label">Gender</label>
               <input
                 type="text"
@@ -120,7 +126,7 @@ export const ProfileSuscription = () => {
               />
             </div>
 
-            <div className="mb-3">
+            <div className="mb-1">
               <label htmlFor="age" className="form-label">Age</label>
               <input
                 type="number"
@@ -133,7 +139,7 @@ export const ProfileSuscription = () => {
               />
             </div>
 
-            <div className="mb-3">
+            <div className="mb-1">
               <label htmlFor="height" className="form-label">Height</label>
               <input
                 type="text"
@@ -146,7 +152,7 @@ export const ProfileSuscription = () => {
               />
             </div>
 
-            <div className="mb-3">
+            <div className="mb-1">
               <label htmlFor="weight" className="form-label">Weight</label>
               <input
                 type="text"
@@ -159,7 +165,7 @@ export const ProfileSuscription = () => {
               />
             </div>
 
-            <div className="mb-3">
+            <div className="mb-1">
               <label htmlFor="subscription" className="form-label">Subscription</label>
               <input
                 type="text"
@@ -172,7 +178,7 @@ export const ProfileSuscription = () => {
               />
             </div>
 
-            <div className="mb-3">
+            <div className="mb-1">
               <label htmlFor="goals" className="form-label">Goals</label>
               <input
                 type="text"
@@ -185,15 +191,16 @@ export const ProfileSuscription = () => {
               />
             </div>
 
+            <Link to="/profileObjetive" >
             <button
               type="button"
               className="btn btn-success d-flex mx-auto d-block justify-content-center mt-3"
-            >
-              Continue
-            </button>
-          </form>
+            >Continue</button>
+            </Link>
+          </formData>
         </div>
       </div>
     </div>
   );
 };
+
