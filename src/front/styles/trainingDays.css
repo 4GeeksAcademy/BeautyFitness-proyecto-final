@@ -10,3 +10,8 @@
 .button-container{
     justify-content: center;
 }
+hr {
+    border-top: 1px solid #ddd; /* Línea fina y gris clara */
+    width: 50%; /* Ocupa el 100% del contenedor */
+  }
+  

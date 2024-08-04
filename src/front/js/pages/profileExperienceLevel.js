@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/profileExperienceLevel.css";
+import { Link } from "react-router-dom";
 const ProfileExperienceLevel = () => {
   return (
      <div>
@@ -10,7 +11,9 @@ const ProfileExperienceLevel = () => {
         <button type="button" class="btn btn-secondary">BIGGINER</button>
         <button type="button" class="btn btn-secondary">INTERMEDIATE</button>
         <button type="button" class="btn btn-secondary">ADVANCED</button>
-        <button type="button" class="btn btn-success">Continue</button>
+        <Link to="/trainingDays">
+        <button type="button" class="btn btn-success w-100">Continue</button>
+        </Link>
         </div>
       </main>
     </div>

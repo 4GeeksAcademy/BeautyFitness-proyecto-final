@@ -14,12 +14,12 @@ export const Card = () => {
           />
           <div className="card-body">
             <FontAwesomeIcon icon="fa-regular fa-star" />
-            <h5 className="card-title text-center">Review title</h5>
-            <p className="card-text text-center">
+            <h3 className="card-title text-center text-dark">Review title</h3>
+            <p className="card-text text-center text-dark">
               Review body
               <body>
-                Reviewer name
-                Date
+                <h5>Reviewer name</h5>
+               <h6>Date</h6> 
               </body>
             </p>
           </div>

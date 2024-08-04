@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/profileObjetive.css";
+import { Link } from "react-router-dom";
 const ProfileObjetive = () => {
   return (
     <div>
@@ -11,7 +12,9 @@ const ProfileObjetive = () => {
         <button type="button" class="btn btn-secondary">HYPERTROPHY</button>
         <button type="button" class="btn btn-secondary">WEIGHTLOSS</button>
         <button type="button" class="btn btn-secondary">MUSCLE DEFINITION</button>
-        <button type="button" class="btn btn-success mt-20 p-10">Continue</button>
+        <Link to="/profileExperienceLevel">
+        <button type="button" class="btn btn-success w-100">Continue</button>
+        </Link>
         </div>
       </main>
     

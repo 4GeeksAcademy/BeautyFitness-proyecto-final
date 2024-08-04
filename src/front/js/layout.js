@@ -2,10 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
-
 import { Home } from "./pages/home";
-// import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
+
 import { SignUp } from "./pages/signUp";
 import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
@@ -23,6 +22,7 @@ import VideoWorkout from "./pages/videoWorkout";
 import DayRoutine from "./pages/dayRoutine";
 import Day from "./pages/day";
 import { Navbar } from "./component/navbar";
+import SignIn from "./pages/signIn";
 // import Single from "./pages/single";
 //create your first component
 const Layout = () => {
@@ -42,6 +42,7 @@ const Layout = () => {
                         <Route element={<Profile />} path="/profile" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<SignUp />} path="/signup" />
+                        <Route element={<SignIn />} path="/pages/sigin" />
                         <Route element={<UpdateProfile />} path="/update-profile" />
                         <Route element={<Single />} path="/single" /> {/* Asegúrate de que esta ruta sea única */}
                         {/* <Route element={<Single />} path="/single/:theid" /> */}

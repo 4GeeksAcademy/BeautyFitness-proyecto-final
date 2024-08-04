@@ -1,7 +1,7 @@
 import React from "react";
 import FormSignIn from "../component/formSignIn";
 
-export const SignIn = () => {
+ const SignIn = () => {
   return (
     <div>
      

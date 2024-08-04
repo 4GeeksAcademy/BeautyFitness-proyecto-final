@@ -12,7 +12,7 @@ const Routine= () => {
         <button type="button" class="btn btn-secondary">Sugest routine</button>
         <button type="button" class="btn btn-secondary">Change routine</button>
         <button type="button" class="btn btn-secondary">Select routine</button>
-        <button type="button" class="btn btn-success mt-20 p-10">Continue</button>
+       
         </div>
       </main>
     
