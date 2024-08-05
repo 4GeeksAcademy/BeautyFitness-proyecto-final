@@ -160,7 +160,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ token: null, user: null });
 			},	
 			
-			// Función para cargar los niveles de experiencia desde el backend
+			// niveles de experiencia desde el backend
 			fetchExperienceLevels : async () => {
 				const store = getStore()
 				if (!store.user || !store.token) {
@@ -233,7 +233,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 		//fetch post training days
-		addTrainingDays : async (number_of_days, days) => {
+			addTrainingDays : async (number_of_days, days) => {
 			const store = getStore();
 		
 			if (!store.user || !store.token) {
@@ -271,9 +271,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			} catch (error) {
 				console.error('Error adding training days:', error);
 			}
-		},
+			},
 		
-		getTrainingDays : async () => {
+			getTrainingDays : async () => {
 			const store = getStore();
 		
 			if (!store.user || !store.token) {
@@ -308,97 +308,61 @@ const getState = ({ getStore, getActions, setStore }) => {
 			} catch (error) {
 				console.error('Error fetching training days:', error);
 			}
-		},
+			},
 
-		//fetch post goals
-		addGoals : async (goals) => {
-			const store = getStore();
-		
-			if (!store.user || !store.token) {
-				Swal.fire({
-					icon: "error",
-					title: "User not logged in",
-					text: "Please log in first",
-				});
-				return;
-			}
-		
-			if (!goals || goals.length < 3) {
-				Swal.fire({
-					icon: "error",
-					title: "Invalid input",
-					text: "You must provide at least 3 goals",
-				});
-				return;
-			}
-		
+			getWorkouts : async () => {
 			try {
-				const response = await fetch(
-					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/goals`, 
-					{
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${store.token}`,
-						},
-						body: JSON.stringify({
-							goals: goals
-						})
-					}
-				);
-		
+				const response = await fetch('glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts');
 				if (!response.ok) {
-					const errorData = await response.json();
-					throw new Error(errorData.message || 'Response was not ok');
+					throw new Error('Network response was not ok ' + response.statusText);
 				}
-		
 				const data = await response.json();
-				console.log('Goals added successfully:', data);
-				//  datos obtenidos
+				console.log(data.workouts); 
 			} catch (error) {
-				console.error('Error adding goals:', error);
+				console.error('There has been a problem :', error);
 			}
-		},
-
-		getGoals : async () => {
-			const store = getStore();
-		
-			if (!store.user || !store.token) {
-				Swal.fire({
-					icon: "error",
-					title: "User not logged in",
-					text: "Please log in first",
-				});
-				return;
-			}
-		
-			try {
-				const response = await fetch(
-					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/goals`, 
-					{
-						method: 'GET',
-						headers: {
-							'Authorization': `Bearer ${store.token}`,
-						}
-					}
-				);
-		
-				if (!response.ok) {
-					const errorData = await response.json();
-					throw new Error(errorData.message || 'Response was not ok');
-				}
-		
-				const data = await response.json();
-				console.log('Goals fetched successfully:', data);
-				// datos obtenidos
-			} catch (error) {
-				console.error('Error fetching goals:', error);
-			}
-		},
-		
-		
-		
 			
+		
+		
+			},
+
+			updateWorkout : async (id, workoutData) => {
+			
+				try {
+					const response = await fetch(`glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
+						method: 'PUT',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(workoutData)
+					});
+					if (!response.ok) {
+						throw new Error('Network response was not ok ' + response.statusText);
+					}
+					const data = await response.json();
+					console.log(data.message); // Mensaje de éxito
+				} catch (error) {
+					console.error('There has been a problem :', error);
+				}
+			
+				},
+
+			deleteWorkout : async (id) => {
+			try {
+				const response = await fetch(`glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
+					method: 'DELETE'
+				});
+				if (!response.ok) {
+					throw new Error('Network response was not ok ' + response.statusText);
+				}
+				const data = await response.json();
+				console.log(data.message); // Mensaje de éxito
+			} catch (error) {
+				console.error('There has been a problem :', error);
+			}
+			
+			},
+
 			
 			getMessage: async () => {
 				const store = getStore();

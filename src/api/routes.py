@@ -2,11 +2,11 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, ExperienceLevel, TrainingDays, Goal, CalorieLog, UserProgress
+from api.models import db, User, ExperienceLevel, TrainingDays, Goal, CalorieLog, UserProgress, Workout
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token,get_jwt_identity,jwt_required
-from datetime import datetime
+from datetime import datetime, date
 
 api = Blueprint('api', __name__)
 
@@ -175,7 +175,50 @@ def get_training_days():
     return jsonify(result), 200
 
 
+@api.route('/workouts', methods=['GET'])
+def get_workouts():
+    workouts = Workout.query.all()
+    output = []
+    for workout in workouts:
+        workout_data = {
+            'id': workout.id,
+            'user_id': workout.user_id,
+            'routine_name': workout.routine_name,
+            'routine_type': workout.routine_type,
+            'creation_date': workout.creation_date.isoformat()
+        }
+        output.append(workout_data)
+    return jsonify({'workouts': output})
 
+@api.route('/workouts/<id>', methods=['GET'])
+def get_workout(id):
+    workout = Workout.query.get_or_404(id)
+    workout_data = {
+        'id': workout.id,
+        'user_id': workout.user_id,
+        'routine_name': workout.routine_name,
+        'routine_type': workout.routine_type,
+        'creation_date': workout.creation_date.isoformat()
+    }
+    return jsonify(workout_data)
+
+@api.route('/workouts/<id>', methods=['PUT'])
+def update_workout(id):
+    data = request.get_json()
+    workout = Workout.query.get_or_404(id)
+    workout.user_id = data['user_id']
+    workout.routine_name = data['routine_name']
+    workout.routine_type = data['routine_type']
+    workout.creation_date = data['creation_date']
+    db.session.commit()
+    return jsonify({'message': 'Workout updated successfully'})
+
+@api.route('/workouts/<id>', methods=['DELETE'])
+def delete_workout(id):
+    workout = Workout.query.get_or_404(id)
+    db.session.delete(workout)
+    db.session.commit()
+    return jsonify({'message': 'Workout deleted successfully'})
 
 @api.route('/goals', methods=['POST'])
 @jwt_required()
