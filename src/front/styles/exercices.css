@@ -1,5 +1,32 @@
 .muscle-img{
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
+    max-height: 500px;
+    max-width: 400px;
+    /* object-fit: cover; */
+}
+.exercises-list {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.exercise-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.exercise-item h3 {
+    margin-top: 0;
+}
+
+.exercise-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.exercise-item ol {
+    padding-left: 20px;
 }

@@ -1,0 +1,75 @@
+
+.exercise-card {
+    max-height: 475px; /* Limitar la altura máxima */
+    max-width: 350px;  /* Limitar el ancho máximo */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin: 10px; /* Margen alrededor */
+    text-align: center; /* Alinear el texto al centro */
+    cursor: pointer; /* Cursor de puntero al pasar sobre la tarjeta */
+    transition: transform 0.2s; /* Transición suave para el efecto hover */
+    background-color: #fff; /* Fondo blanco */
+    overflow:scroll; /* Ocultar el contenido que se desborda */
+}
+
+.exercise-card:hover {
+    transform: scale(1.05); /* Aumentar ligeramente al pasar el ratón */
+}
+
+.exercise-image {
+    width: 100%; /* Imagen ocupa el ancho completo del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    border-bottom: 1px solid #ddd; /* Borde inferior gris claro */
+    padding-bottom: 10px; /* Espaciado inferior */
+    margin-bottom: 10px; /* Margen inferior */
+    border-radius: 8px; /* Bordes redondeados de la imagen */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien */
+}
+
+h3 {
+    /* margin: 16px 0; Espaciado arriba y abajo del título */
+    font-size: 1.25rem; /* Tamaño de fuente del título */
+    line-height: 1.4; /* Altura de línea */
+}
+
+.muscle-tags {
+    display: flex; /* Flexbox para disposición de etiquetas */
+    flex-wrap: wrap; /* Permitir que las etiquetas se envuelvan en nuevas líneas */
+    justify-content: center; /* Centrar las etiquetas horizontalmente */
+    gap: 5px; /* Espacio entre etiquetas */
+}
+
+.primary-muscle, .secondary-muscle {
+    background-color: #f1f1f1; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+    padding: 4px 8px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 0.875rem; /* Tamaño de fuente */
+    white-space: nowrap; /* Evitar el salto de línea dentro de las etiquetas */
+    overflow: hidden; /* Ocultar el contenido que se desborda */
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos si el texto es largo */
+}
+
+.primary-muscle {
+    background-color: red; /* Fondo rojo para el músculo primario */
+}
+
+.secondary-muscle {
+    background-color: orange; /* Fondo naranja para los músculos secundarios */
+}
+
+@media (max-width: 768px) {
+    .exercise-card {
+        max-width: 100%; /* Ancho completo en pantallas pequeñas */
+        margin: 5px; /* Reducir el margen en pantallas pequeñas */
+    }
+
+    h3 {
+        font-size: 1rem; /* Reducir el tamaño de fuente en pantallas pequeñas */
+    }
+
+    .muscle-tags span {
+        font-size: 0.75rem; /* Reducir el tamaño de fuente en pantallas pequeñas */
+    }
+}

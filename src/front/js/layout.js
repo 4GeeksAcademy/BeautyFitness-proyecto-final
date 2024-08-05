@@ -28,6 +28,8 @@ import VideoWorkout from "./pages/videoWorkout";
 import DayRoutine from "./pages/dayRoutine";
 import Day from "./pages/day";
 import { Exercices } from "./pages/exercices";
+import { ExercisesListPage } from "./pages/exerciseListPage";
+import { SingleExercisePage } from "./pages/singleExercisePage";
 
 //create your first component
 const Layout = () => {
@@ -38,7 +40,7 @@ const Layout = () => {
     if (!process.env.BACKEND_URL || process.env.BACKEND_URL === "") return <BackendURL />;
 
     return (
-        <div className="bg-dark text-light h-100">
+        <div className="bg-dark text-light h-auto">
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <Navbar /> {/* Descomentado para que el Navbar se muestre */}
@@ -52,6 +54,8 @@ const Layout = () => {
                         <Route element={<ForgotPassword />} path="/forgot-password" />
                         <Route element={<ResetPassword />} path="/reset-password" />
                         <Route element={<Exercices />} path="/exercices" />
+                        <Route element={<ExercisesListPage />} path="/exercises-list/:bodyPart" />
+                        <Route element={<SingleExercisePage />} path="/exercise/:exerciseId" />
                         {/* <Route element={<Single />} path="/single/:theid" /> */}
                         <Route element={<Workout />} path="/workout" /> 
                         <Route element={<WorkoutList />} path="/workoutList" /> 
