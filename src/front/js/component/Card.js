@@ -24,13 +24,11 @@ export const Card = () => {
             </p>
           </div>
        </div>
-         {/*<div className="container footer border-top" style={{ padding: "10px" }}>
-          <a href="#" className="btn btn-info mt-3 d-flex justify-content-center">
-            Find Out More!
-          </a>
-        </div>*/}
+         
       </div>
     </div>
+
+    
   );
 };
 

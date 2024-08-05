@@ -5,9 +5,51 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
-.rounded-img {
-    border-radius: 50%;
-    width: 200px; /* Ajusta el tamaño según tus necesidades */
-    height: 200px; /* Ajusta el tamaño según tus necesidades */
-    object-fit: cover;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Ajuste de la caja de características personalizadas */
+  .custom-box {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Estilo de la lista dentro de la custom-box */
+  .list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    
+  }
+  
+  /* Contenedor para el botón de registro */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+   
+  }
+  
+  /* Estilos para las secciones de testimonios */
+  .testimonials-section {
+    width: 100%;
+  }
+  
+  .testimonials-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Estilos adicionales */
+  .bg-success-subtle {
+    background-color: #d4edda;
   }
