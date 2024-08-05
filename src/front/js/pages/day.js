@@ -15,7 +15,7 @@ const Day = () => {
   ];
 
   return (
-    <main className="profile-container border-dark ">
+    <main className="profile-container border-dark bg-dark">
       <div className="col-xl border-dark ">
         <div className="card mb-1 mx-auto border-dark " style={{ width: "36rem" }}>
           <div className="text-center bg-dark">
@@ -50,8 +50,8 @@ const Day = () => {
         </div>
 
         <div className="d-flex justify-content-center mb-5">
-          <Link to="/workout">
-            <button type="button" className="btn btn-secondary mx-2">
+          <Link to="/day">
+            <button type="button" className="btn btn-secondary mx-2 bg-dark">
               Back
             </button>
           </Link>

@@ -25,6 +25,7 @@ import { Navbar } from "./component/navbar";
 import SignIn from "./pages/signIn";
 import SuscriptionInfo from "./pages/suscriptionInfo"
 import Workout from "./pages/workout";
+import Fullbody from "./pages/fullbody";
 
 
 // import Single from "./pages/single";
@@ -57,6 +58,7 @@ const Layout = () => {
                         <Route element={<Day />} path="/day" />
                         <Route element={<TrainingDays />} path="/trainingDays" />
                         <Route element={<DayRoutine />} path="/dayRoutine" />
+                        <Route element={<Fullbody />} path="./pages/fullbody" />
                         <Route element={<VideoWorkout />} path="/videoWorkout" />
                         <Route element ={<SuscriptionInfo />} path="suscriptioninfo" />
                         <Route element={<Routine  />} path="/routine" />

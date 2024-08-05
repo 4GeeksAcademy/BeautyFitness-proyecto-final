@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../styles/routine.css";
 const Routine= () => {
   return (
-    <div>
+    <div className="bg-dark">
      
       <main className="routine-container">
         <h1 className="mt-5">Routine</h1>
@@ -15,7 +15,7 @@ const Routine= () => {
         <Link to="/trainingDays">
         <button type="button" class="btn btn-secondary w-100">Sugest routine</button>
         </Link>
-        <Link to="/trainingDays">
+        <Link to="/workoutList">
         <button type="button" class="btn btn-secondary w-100">Change routine</button>
         </Link>
         <Link to="/trainingDays">
@@ -25,7 +25,7 @@ const Routine= () => {
         <div className="text-center mb-5">
         <div className="d-flex justify-content-center gap-3">
         <Link to="/profileExperienceLevel">
-          <button type="button" className="d-flex btn btn-secondary w-100 mr-1">Back</button>
+          <button type="button" className="d-flex btn btn-secondary w-100 mr-1 bg-dark">Back</button>
         </Link>
         <div className="text-center ml-5"></div>
         </div>

@@ -41,11 +41,11 @@ export const ProfileSuscription = () => {
         </div>
         <div className="card-body mt-1">
           <FontAwesomeIcon icon="fa-regular fa-star" />
-          <h5 className="card-title text-center">Personal Data</h5>
+          <h5 className="card-title text-center text-dark">Personal Data</h5>
 
           <formData>
             <div className="mb-1 ">
-              <label htmlFor="username" className="form-label mt-1">Username</label>
+              <label htmlFor="username" className="form-label mt-1 text-dark">Username</label>
               <input
                 type="text"
                 className="form-control"
@@ -58,7 +58,7 @@ export const ProfileSuscription = () => {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="password" className="form-label">Password</label>
+              <label htmlFor="password" className="form-label text-dark">Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -71,7 +71,7 @@ export const ProfileSuscription = () => {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="gender" className="form-label">Gender</label>
+              <label htmlFor="gender" className="form-label text-dark">Gender</label>
               <input
                 type="text"
                 className="form-control"
@@ -84,7 +84,7 @@ export const ProfileSuscription = () => {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="age" className="form-label">Age</label>
+              <label htmlFor="age" className="form-label text-dark">Age</label>
               <input
                 type="number"
                 className="form-control"
@@ -97,7 +97,7 @@ export const ProfileSuscription = () => {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="height" className="form-label">Height</label>
+              <label htmlFor="height" className="form-label text-dark">Height</label>
               <input
                 type="text"
                 className="form-control"
@@ -110,7 +110,7 @@ export const ProfileSuscription = () => {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="weight" className="form-label">Weight</label>
+              <label htmlFor="weight" className="form-label text-dark">Weight</label>
               <input
                 type="text"
                 className="form-control"
@@ -123,7 +123,7 @@ export const ProfileSuscription = () => {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="subscription" className="form-label">Subscription</label>
+              <label htmlFor="subscription" className="form-label text-dark">Subscription</label>
               <input
                 type="text"
                 className="form-control"
@@ -136,7 +136,7 @@ export const ProfileSuscription = () => {
             </div>
 
             <div className="mb-1">
-              <label htmlFor="goals" className="form-label">Goals</label>
+              <label htmlFor="goals" className="form-label text-dark">Goals</label>
               <input
                 type="text"
                 className="form-control"
@@ -150,7 +150,7 @@ export const ProfileSuscription = () => {
             <div className="text-center mb-5">
         <div className="d-flex justify-content-center gap-3">
         <Link to="/signup">
-          <button type="button" className="d-flex btn btn-secondary w-100 mr-1 mt-3">Back</button>
+          <button type="button" className="d-flex btn btn-secondary w-100 mr-1 mt-3 bg-dark">Back</button>
         </Link>
         <div className="text-center ml-5"></div>
             <Link to="/profileObjetive" >

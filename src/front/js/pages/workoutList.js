@@ -20,18 +20,19 @@ export const WorkoutList = () => {
   );
 
   return (
+ 
     <main className="workoutList-container bg-dark">
       <div className="center">
-        <h3 className="mt-2 text-center">Workout List Page</h3>
+        <h3 className="mt-2 text-center">Workout List</h3>
         <h5 className="mt-2 text-center">List of all workouts</h5>
         
         {/* Campo de búsqueda */}
-        <div className="container my-3">
-          <div className="row justify-content-center">
+        <div className="container my-3 bg-dark">
+          <div className="row justify-content-center bg-dark">
             <div className="col-12 mb-3">
               <input
                 type="text"
-                className="form-control"
+                className="form-control bg-dark"
                 placeholder="Search workouts..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -41,11 +42,11 @@ export const WorkoutList = () => {
         </div>
 
         {/* Lista de tarjetas filtradas */}
-        <div className="container my-3">
-          <div className="row justify-content-center">
+        <div className="container my-3 bg-dark">
+          <div className="row justify-content-center bg-dark">
             {filteredWorkouts.map((workout, index) => (
               <div key={index} className="col-6 col-sm-6 col-md-4 col-lg-4 mb-4">
-                <h5 className="mt-2 text-center">Toned Legs</h5>
+                <h5 className="mt-2 ">Toned Legs</h5>
                 <CardWorkout title={workout.title} description={workout.description} />
               </div>
             ))}
@@ -53,20 +54,21 @@ export const WorkoutList = () => {
         </div>
 
         {/* Contenedor para los botones */}
-        <div className="d-flex justify-content-center mb-5">
+        <div className="d-flex justify-content-center mb-5 bg-dark">
           <Link to="/trainingDays">
-            <button type="button" className="btn btn-secondary mx-2">
+            <button type="button" className="btn btn-secondary mb-5 mx-2 bg-dark">
               Back
             </button>
           </Link>
           <Link to="/workout">
-            <button type="button" className="btn btn-success mx-2">
+            <button type="button" className="btn btn-success ml-5 mb-5 mx-2">
               Continue
             </button>
           </Link>
         </div>
       </div>
     </main>
+    
   );
 };
 

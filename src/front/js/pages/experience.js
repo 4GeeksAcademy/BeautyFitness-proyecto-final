@@ -21,7 +21,7 @@ export const Experience = () => {
   };
 
   return (
-    <div>
+    <div className='bg-dark'>
       <h1>Select Your Experience Level</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="experienceLevel">Experience Level:</label>

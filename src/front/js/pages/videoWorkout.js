@@ -13,7 +13,7 @@ const VideoWorkday = () => {
   };
 
   return (
-    <main className="profile-container">
+    <main className="profile-container bg-dark">
       <div className="col-xl">
         <div className="card mb-1 mx-auto" style={{ width: "36rem" }}>
           <div className="text-center bg-dark">
@@ -31,13 +31,13 @@ const VideoWorkday = () => {
         </div>
 
         <div className="d-flex justify-content-center mb-5">
-          <Link to="/day">
-            <button type="button" className="btn btn-secondary mx-2">
+          <Link to="/days">
+            <button type="button" className="btn btn-secondary bg-dark mx-2 mt-5">
               Back
             </button>
           </Link>
-          <Link to="/trainingDays">
-            <button type="button" className="btn btn-success mx-2">
+          <Link to="workout">
+            <button type="button" className="btn btn-success mx-2 mt-5">
               Continue
             </button>
           </Link>

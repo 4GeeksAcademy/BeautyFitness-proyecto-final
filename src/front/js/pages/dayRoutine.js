@@ -4,7 +4,7 @@ import "../../styles/profileObjetive.css";
 
 const DayRoutine = () => {
   return (
-    <div>
+    <div className="bg-dark">
       <main className="profileObjetive-container container">
         <h1 className="mt-5 text-center">Day Routine</h1>
         <h3 className="text-center">Type Routine</h3>

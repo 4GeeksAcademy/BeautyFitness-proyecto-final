@@ -15,7 +15,7 @@ export const ProfileCard = () => {
           />
           <div className="card-body">
             <FontAwesomeIcon icon="fa-regular fa-star" />
-            <h5 className="card-title text-center">Personal Data</h5>
+            <h5 className="card-title text-center text-dark">Personal Data</h5>
             {/* <ul class="list-group list-group-flush">
     <li class="list-group-item">Gender</li>
     <li class="list-group-item">Date birthday</li>
@@ -24,7 +24,7 @@ export const ProfileCard = () => {
   </ul> */}
 
 <form>
-              <div className="form-group">
+              <div className="form-group text-dark">
                 <label htmlFor="gender">Gender</label>
                 <select id="gender" className="form-control">
                   <option value="">Select Gender</option>
@@ -33,15 +33,15 @@ export const ProfileCard = () => {
                   <option value="other">Other</option>
                 </select>
               </div>
-              <div className="form-group">
-                <label htmlFor="dateOfBirth">Date of Birth</label>
+              <div className="form-group text-dark">
+                <label htmlFor="dateOfBirth ">Date of Birth</label>
                 <input
                   type="date"
                   id="dateOfBirth"
                   className="form-control"
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group text-dark">
                 <label htmlFor="height">Height (cm)</label>
                 <input
                   type="number"
@@ -50,7 +50,7 @@ export const ProfileCard = () => {
                   placeholder="Enter your height"
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group text-dark">
                 <label htmlFor="weight">Weight (kg)</label>
                 <input
                   type="number"
@@ -60,10 +60,10 @@ export const ProfileCard = () => {
                 />
               </div>
    </form>
-   <div className="text-center mb-5">
+   <div className="text-center mb-5 text-dark">
         <div className="d-flex justify-content-center gap-3">
         <Link to="/signup">
-          <button type="button" className="d-flex btn btn-secondary w-100 mr-1 mt-4">Back</button>
+          <button type="button" className="d-flex btn btn-secondary w-100 mr-1 mt-4 bg-dark">Back</button>
         </Link>
         <div className="text-center ml-5"></div>
   <Link to="/suscriptionInfo">
