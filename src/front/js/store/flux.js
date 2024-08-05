@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			message: null,
 			user: null,
+			exercises: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -30,14 +31,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Función para cargar los niveles de experiencia desde el backend
 			fetchExperienceLevels : async () => {
 				try {
-				  const response = await fetch('https://animated-chainsaw-69vv45xwxxvw35jg6-3001.app.github.dev/api/experience_levels')
-
+				  const response = await fetch('https://didactic-winner-x5rrg7q5wjxjhpj44-3001.app.github.dev/api/experience_levels')
+				  if (!response.ok) throw new Error('Error fetching experience levels');
 				  const data = await response.json();
-				  setExperienceLevels(data);
-				} catch (error) {
+				  setStore({ experienceLevels: data });
+			  } catch (error) {
 				  console.error('Error fetching experience levels:', error);
-				}
-			  },
+			  }
+			},
 
 			// Obtener token y usuario de localStorage y actualizar store
 			// Obtener token y usuario de localStorage y actualizar store
@@ -168,7 +169,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem('token');
 				localStorage.removeItem('user');
 				setStore({ token: null, user: null });
-			},			
+			},
+
+			fetchExercisesByBodyPart: async (bodyPart) => {
+                const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=20&offset=0`;
+                const headers = {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "x-rapidapi-ua": "RapidAPI-Playground",
+                    "x-rapidapi-key": "c04e31f8d9msh5585820233eb7f2p1d69dcjsn1b0d4c29a641",
+                    "x-rapidapi-host": "exercisedb.p.rapidapi.com"
+                };
+
+                try {
+                    const response = await fetch(url, { method: "GET", headers });
+                    if (!response.ok) throw new Error("Error fetching exercises");
+
+                    const data = await response.json();
+                    setStore({ exercises: data });
+                } catch (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: error.message,
+                    });
+                    console.log(error);
+                }
+            },
 
 			getMessage: async () => {
 				const store = getStore();

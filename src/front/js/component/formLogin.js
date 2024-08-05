@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const FormLogin = () => {
@@ -38,6 +38,9 @@ export const FormLogin = () => {
                             <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                         </div>
                         <button type="submit" className="btn btn-primary">Login</button>
+                        <Link to="/forgot-password">
+							<p>Forgot password?</p>
+						</Link>
                     </form>
                 </div>
             ) : null}
