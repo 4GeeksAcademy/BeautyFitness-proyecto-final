@@ -23,8 +23,31 @@ export const Home = () => {
           <Card />
         </div>
       ): (
-        <div>
-
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 d-flex justify-content-center align-items-center">
+            <div className="col homeClick m-2">
+              <Link to="/exercices">
+                <h1 className="text-dark text-center display-4 fw-semibold">
+                  Exercises
+                </h1>
+              </Link>
+            </div>
+            <div className="col homeClick m-2">
+              <h1 className="text-dark text-center display-4 fw-semibold">
+                Custom Workout
+              </h1>
+            </div>
+            <div className="col homeClick m-2">
+              <h1 className="text-dark text-center display-4 fw-semibold">
+                Exercises
+              </h1>
+            </div>
+            <div className="col homeClick m-2">
+              <h1 className="text-dark text-center display-4 fw-semibold">
+                Exercises
+              </h1>
+            </div>
+          </div>
         </div>
       )}
       </div>

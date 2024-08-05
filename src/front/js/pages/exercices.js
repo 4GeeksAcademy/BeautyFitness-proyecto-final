@@ -39,7 +39,7 @@ export const Exercices = () => {
                     <div key={index} className="col d-flex flex-column my-2" onClick={() => handleBodyPartClick(part.name)}>
                         <img 
                             src={part.src} 
-                            className="img-fluid muscle-img"
+                            className="img-fluid muscle-img cursor"
                         />
                     </div>
                 ))}

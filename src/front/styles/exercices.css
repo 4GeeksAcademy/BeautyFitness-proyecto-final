@@ -30,3 +30,7 @@
 .exercise-item ol {
     padding-left: 20px;
 }
+
+.cursor{
+    cursor: pointer;
+}
