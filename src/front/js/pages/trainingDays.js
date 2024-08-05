@@ -92,7 +92,7 @@ const TrainingDays = () => {
           <button type="button" className="d-flex btn btn-secondary w-100 mr-1">Back</button>
         </Link>
         <div className="text-center ml-5">
-          <Link to="/day">
+          <Link to="/workoutList">
             <button type="button" className="btn btn-success w-100 mb-5 ml-1">Continue</button>
           </Link>
           </div>

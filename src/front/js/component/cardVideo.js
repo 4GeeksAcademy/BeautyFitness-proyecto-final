@@ -12,11 +12,6 @@ export const CardVideo = () => {
       </div> 
       </div> 
 
-
-
-
-
-
     <div className="col-xl-6 ">
       <div className="card  mb-5 mt-4 ml-50 mx-auto" style={{ width: "36rem" }}>
         <div className=" justify-content-center" style={{ padding: "10px" }}>

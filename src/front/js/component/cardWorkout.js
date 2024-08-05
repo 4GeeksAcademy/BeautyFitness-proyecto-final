@@ -21,23 +21,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const CardWorkout = () => {
   return (
     <div className="col-xl-6">
-      <div className="card d-flex justify-content-center mb-5 mt-4 mx-auto" style={{ width: "36rem" }}>
-        <div className="d-flex align-items-center" style={{ padding: "10px" }}>
+      <div className="card mb-5 mt-4 mx-auto" style={{ width: "15rem" }}>
+      <div className=" align-items-center" style={{ padding: "10px" }}>
           <img 
             src="https://picsum.photos/200" 
-            className="card-img-top" 
+            className="card-img-top img-fluid mx-auto d-block mt-4" 
             alt="..." 
-            style={{ borderRadius: "50%", width: "100px", height: "100px", objectFit: "cover", marginRight: "10px" }} 
+            style={{ borderRadius: "0%", width: "150px", height: "150px", objectFit: "cover", marginRight: "10px" }} 
           />
           <div className="card-body">
             <FontAwesomeIcon icon="fa-regular fa-star" />
-            <h3 className="card-title text-center text-dark">Review title</h3>
+            <h3 className="card-title text-center text-dark">Title</h3>
             <p className="card-text text-center text-dark">
-              Review body
-              <body>
-                <h5>Reviewer name</h5>
-               <h6>Date</h6> 
-              </body>
+              Body text for whatever you'd like
+             
             </p>
           </div>
        </div>

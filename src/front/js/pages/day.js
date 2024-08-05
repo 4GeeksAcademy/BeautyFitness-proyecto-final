@@ -3,26 +3,26 @@
 import React from "react";
 import "../../styles/profile.css";
 import { Link } from "react-router-dom";
-import CardDay from "../component/cardDay";
+import CardImage from "../component/cardImage";
 
 const Day = () => {
   const days = [
-    { videoSrc: "https://www.example.com/video1.mp4", exerciseName: "Exercise 1", interval: "3 sets of 10 reps" },
-    { videoSrc: "https://www.example.com/video2.mp4", exerciseName: "Exercise 2", interval: "4 sets of 12 reps" },
-    { videoSrc: "https://www.example.com/video3.mp4", exerciseName: "Exercise 3", interval: "5 sets of 15 reps" },
-    
+    { ImageSrc: "https://picsum.photos/536/354", exerciseName: "Exercise 1 mt-5 text-dark", interval: "text-dark 3 sets of 10 reps" },
+    { ImageSrc: "https://picsum.photos/536/354", exerciseName: "Exercise 2", interval: "4 sets of 12 reps" },
+    { ImageSrc: "https://picsum.photos/536/354", exerciseName: "Exercise 3", interval: "5 sets of 15 reps" },
+
     // Agrega más ejercicios según sea necesario
   ];
 
   return (
-    <main className="profile-container">
-      <div className="col-xl">
-        <div className="card mb-1 mx-auto" style={{ width: "36rem" }}>
+    <main className="profile-container border-dark ">
+      <div className="col-xl border-dark ">
+        <div className="card mb-1 mx-auto border-dark " style={{ width: "36rem" }}>
           <div className="text-center bg-dark">
             
-            <div className="form-group">
-      <label htmlFor="daySelect">Day</label>
-      <select id="daySelect" className="form-control">
+            <div className="form-group  ">
+      <label htmlFor="daySelect  ">Day</label>
+      <select id="daySelect" className="form-control  ">
                 <option value="">Select day</option>
                 <option value="monday">Monday</option>
                 <option value="tuesday">Tuesday</option>
@@ -40,23 +40,22 @@ const Day = () => {
           <div className="row justify-content-center">
             {days.map((day, index) => (
               <div key={index} className="col-12 col-md-4 mb-3">
-                <CardDay
-                  videoSrc={day.videoSrc}
-                  exerciseName={day.exerciseName}
-                  interval={day.interval}
-                />
+                <CardImage /> 
+                <CardImage /> 
+                <CardImage /> 
+               
               </div>
             ))}
           </div>
         </div>
 
         <div className="d-flex justify-content-center mb-5">
-          <Link to="/routine">
+          <Link to="/workout">
             <button type="button" className="btn btn-secondary mx-2">
               Back
             </button>
           </Link>
-          <Link to="/day">
+          <Link to="/videoWorkout">
             <button type="button" className="btn btn-success mx-2">
               Continue
             </button>
