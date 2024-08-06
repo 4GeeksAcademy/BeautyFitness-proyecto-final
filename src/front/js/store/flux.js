@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			message: null,
 			user: null,
+			trainingDays: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -22,7 +23,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			
+			setUser: (user) => setStore({ user }),
+            setToken: (token) => setStore({ token }),
+            setTrainingDays: (trainingDays) => setStore({ trainingDays }),
+
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 				fetchExperienceLevels();
@@ -247,7 +251,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
 			try {
 				const response = await fetch(
-					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/training-days`, 
+					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/training-days`, 
 					{
 						method: 'POST',
 						headers: {
@@ -312,7 +316,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getWorkouts : async () => {
 			try {
-				const response = await fetch('glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts');
+				const response = await fetch('https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts');
 				if (!response.ok) {
 					throw new Error('Network response was not ok ' + response.statusText);
 				}
@@ -329,7 +333,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			updateWorkout : async (id, workoutData) => {
 			
 				try {
-					const response = await fetch(`glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
+					const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
 						method: 'PUT',
 						headers: {
 							'Content-Type': 'application/json'
@@ -349,7 +353,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteWorkout : async (id) => {
 			try {
-				const response = await fetch(`glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
+				const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
 					method: 'DELETE'
 				});
 				if (!response.ok) {
