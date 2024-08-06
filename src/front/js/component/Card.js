@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Card = () => {
   return (
     <div className="col-xl-6">
-      <div className="card d-flex justify-content-center mb-5 mt-1 mx-auto" style={{ width: "20rem" }}>
-        <div className="d-flex align-items-center" style={{ padding: "10px" }}>
+      <div className="card d-flex justify-content-center mb-1 mt-1 mx-auto" style={{ width: "18rem" }}>
+        <div className="d-flex align-items-center" style={{ padding: "15px" }}>
           <img 
             src="https://picsum.photos/200" 
             className="card-img-top" 
@@ -31,9 +31,6 @@ export const Card = () => {
     
   );
 };
-
-
-
 
 
 

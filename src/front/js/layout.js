@@ -28,6 +28,7 @@ import Workout from "./pages/workout";
 import Fullbody from "./pages/fullbody";
 
 
+
 // import Single from "./pages/single";
 //create your first component
 const Layout = () => {
