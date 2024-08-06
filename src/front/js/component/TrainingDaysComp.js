@@ -11,7 +11,7 @@ export const TrainingDaysComp = () => {
     }, []);
 
     const handleAddTrainingDays = () => {
-        actions.addTrainingDays(5, ['Monday', 'Wednesday', 'Friday']);
+        actions.addTrainingDays(5, ['days']);
     };
 
     return (

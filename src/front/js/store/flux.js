@@ -306,7 +306,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 		
 				const data = await response.json();
-				//settrainingdays
+				settrainingdays(data)
 				console.log('Training days fetched successfully:', data);
 				
 			} catch (error) {
