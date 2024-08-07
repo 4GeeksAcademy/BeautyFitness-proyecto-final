@@ -18,9 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  id: 2,
 				  name: "Upper Body Workout",
 				  exercises: [2, 3, 4]
-				}
-			  ],
-			  exercises: [
+				},
 				{
 				  id: 1,
 				  name: "Push-up",
@@ -41,7 +39,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  name: "Bench Press",
 				  description: "An exercise to strengthen the chest and triceps."
 				}
-			  ],
+			  
+			],
+			  
 			  selectedWorkout: null,
 			  selectedExercise: null,
 			
