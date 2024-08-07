@@ -8,6 +8,43 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: null,
 			user: null,
 			trainingDays: [],
+			workouts: [
+				{
+				  id: 1,
+				  name: "Full Body Workout",
+				  exercises: [1, 2, 3]
+				},
+				{
+				  id: 2,
+				  name: "Upper Body Workout",
+				  exercises: [2, 3, 4]
+				}
+			  ],
+			  exercises: [
+				{
+				  id: 1,
+				  name: "Push-up",
+				  description: "An exercise to strengthen the upper body."
+				},
+				{
+				  id: 2,
+				  name: "Squat",
+				  description: "An exercise to strengthen the lower body."
+				},
+				{
+				  id: 3,
+				  name: "Pull-up",
+				  description: "An exercise to strengthen the back and arms."
+				},
+				{
+				  id: 4,
+				  name: "Bench Press",
+				  description: "An exercise to strengthen the chest and triceps."
+				}
+			  ],
+			  selectedWorkout: null,
+			  selectedExercise: null,
+			
 			demo: [
 				{
 					title: "FIRST",
@@ -26,6 +63,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setUser: (user) => setStore({ user }),
             setToken: (token) => setStore({ token }),
             setTrainingDays: (trainingDays) => setStore({ trainingDays }),
+			setworkouts: (workouts) => setStore({ workouts}),
+			//actions to find workout
+			selectWorkout: (workoutId) => {
+				const store = getStore();
+				const selectedWorkout = store.workouts.find(workout => workout.id === workoutId);
+				setStore({ selectedWorkout });
+				Swal.fire('Workout Selected', `You have selected ${selectedWorkout.name}`, 'info');
+			  },
+		
+			  selectExercise: (exerciseId) => {
+				const store = getStore();
+				const selectedExercise = store.exercises.find(exercise => exercise.id === exerciseId);
+				setStore({ selectedExercise });
+				Swal.fire('Exercise Selected', `You have selected ${selectedExercise.name}`, 'info');
+			  },
 
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -291,7 +343,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
 			try {
 				const response = await fetch(
-					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/training-days`, 
+					`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/training-days`, 
 					{
 						method: 'GET',
 						headers: {
@@ -313,15 +365,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.error('Error fetching training days:', error);
 			}
 			},
-
+			//fetch workout
 			getWorkouts : async () => {
 			try {
-				const response = await fetch('https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts');
+				const response = await fetch('https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/workouts');
 				if (!response.ok) {
 					throw new Error('Network response was not ok ' + response.statusText);
 				}
 				const data = await response.json();
-				console.log(data.workouts); 
+				setworkout(data); 
 			} catch (error) {
 				console.error('There has been a problem :', error);
 			}
@@ -333,7 +385,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			updateWorkout : async (id, workoutData) => {
 			
 				try {
-					const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
+					const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/workouts/${id}`, {
 						method: 'PUT',
 						headers: {
 							'Content-Type': 'application/json'
@@ -353,7 +405,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deleteWorkout : async (id) => {
 			try {
-				const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/workouts/${id}`, {
+				const response = await fetch(`https://glorious-carnival-r477p65w5xxwhp5xj-3001.app.github.dev/api/workouts/${id}`, {
 					method: 'DELETE'
 				});
 				if (!response.ok) {

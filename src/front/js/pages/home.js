@@ -23,11 +23,11 @@ export const Home = () => {
     return (
       <div>
         <div className="row align-center">
-          
+          <Workout />
+          {/* <Card />
           <Card />
           <Card />
-          <Card />
-          <Card />   
+          <Card />    */}
         </div>
       </div>
     );
