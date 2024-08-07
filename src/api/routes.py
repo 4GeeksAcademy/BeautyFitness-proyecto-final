@@ -140,6 +140,7 @@ def add_training_days():
 
     number_of_days = data.get('number_of_days')
     days = data.get('days')
+    dates = data.get('dates')
 
     if not number_of_days or not days:
         return jsonify({'message': 'Number of days and days are required'}), 400
@@ -147,7 +148,8 @@ def add_training_days():
     training_days = TrainingDays(
         number_of_days=number_of_days,
         days=days,
-        user_id=user_id
+        user_id=user_id,
+        
     )
 
     db.session.add(training_days)

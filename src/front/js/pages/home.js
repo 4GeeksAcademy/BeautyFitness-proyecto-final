@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Card } from "../component/Card";
-import { TrainingDaysComp } from "../component/TrainingDaysComp";
+
+import Workout from "./workout";
+
 
 
 //import Footer from "../component/footer";
@@ -21,11 +23,11 @@ export const Home = () => {
     return (
       <div>
         <div className="row align-center">
-          <TrainingDaysComp />
+          
           <Card />
           <Card />
           <Card />
-          <Card />
+          <Card />   
         </div>
       </div>
     );
