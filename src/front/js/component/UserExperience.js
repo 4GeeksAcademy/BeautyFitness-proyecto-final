@@ -1,11 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Context } from '../store/appContext';
+import { useNavigate, useParams } from 'react-router';
 
 
-export const Experience = () => {
+export const UserExperience = () => {
   const [selectedExperience, setSelectedExperience] = useState('');
   const [userId, setUserId] = useState('');
   const levels = ['beginner', 'intermediate', 'advanced'];
 
+  const {store, actions} = useContext(Context);
+  const params = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (store.token){
+      navigate('/')
+    }
+  },[store.token])
 
 
   const handleSubmit = (e) => {
@@ -22,6 +33,7 @@ export const Experience = () => {
 
   return (
     <div>
+      {/* {!store.token ? () : null} */}
       <h1>Select Your Experience Level</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="experienceLevel">Experience Level:</label>

@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Card } from "../component/Card";
+<<<<<<< HEAD
+
+import Workout from "./workout";
+
+
+
+//import Footer from "../component/footer";
+//import { NavBar } from "../component/navBar";
+=======
+>>>>>>> 1a5744cfb28cde62d983fd4028cc5df5611e2ca9
 
 export const Home = () => {
     const { store, actions } = useContext(Context);
@@ -17,10 +27,11 @@ export const Home = () => {
       <div>
         {!store.token ? (
         <div className="row align-center">
+          
           <Card />
           <Card />
           <Card />
-          <Card />
+          <Card />   
         </div>
       ): (
         <div className="container">

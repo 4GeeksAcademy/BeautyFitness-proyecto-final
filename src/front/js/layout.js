@@ -17,10 +17,10 @@ import { Footer } from "./component/footer";
 import { UpdateProfile } from "./pages/updateProfile";
 
 import Profile from"./pages/profile";
-import {Single} from "./pages/single"; // Importa el componente Single
+import Single from "../js/pages/single"; // Importa el componente Single
 import Workout from "./pages/workout"; // Importa el componente Workout
 import WorkoutList from "./pages/workoutList"; // Importa el componente WorkoutList
-import ProfileExperienceLevel from"./pages/profileExperienceLevel";
+import ProfileExperienceLevel from"../js/pages/profileExperienceLevel";
 import ProfileObjetive from "./pages/profileObjetive";
 import TrainingDays from "./pages/trainingDays";
 import Routine from "./pages/routine";
