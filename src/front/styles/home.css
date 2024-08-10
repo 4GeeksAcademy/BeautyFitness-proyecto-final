@@ -10,4 +10,9 @@
     width: 200px; /* Ajusta el tamaño según tus necesidades */
     height: 200px; /* Ajusta el tamaño según tus necesidades */
     object-fit: cover;
-  }
+}
+.homeClick{
+    max-width: 400px;
+    max-height: 450px;
+    background-color: white;
+}

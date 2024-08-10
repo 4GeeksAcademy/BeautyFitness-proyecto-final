@@ -67,8 +67,26 @@ def update_user(user_id):
     db.session.commit()
     return jsonify({"msg": "User updated"}), 200
 
+# @api.route('/recommend_routine', methods=['POST'])
+# @jwt_required()
+# def recommend_routine():
+#     user_id = get_jwt_identity()
+#     body = request.json
+#     days = body.get('days')
 
+#     user = User.query.get(user_id)
+#     if not user:
+#         return jsonify({"msg": "User not found"}), 404
 
+#     routine_recommendation = ""
+#     if len(days) == 3:
+#         routine_recommendation = "Full-body workout routine"
+#     elif len(days) == 5:
+#         routine_recommendation = "Split routine: Upper/Lower body"
+#     else:
+#         routine_recommendation = "Custom routine based on your schedule"
+
+#     return jsonify({"recommended_routine": routine_recommendation}), 200
 
 
 @api.route('/experience_levels', methods=['POST'])

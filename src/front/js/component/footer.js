@@ -7,10 +7,10 @@ export const Footer = () => {
        BeautyFitness
       </p>
       <div className="social-icons">
-        <i className="fab fa-twitter m-20px"></i>
-        <i className="fab fa-instagram mr-20px"></i>
-        <i className="fab fa-youtube mr-20px"></i>
-        <i className="fab fa-linkedin-in mr-20px"></i>
+        <i className="fab fa-twitter m-20px mx-1"></i>
+        <i className="fab fa-instagram mr-20px mx-1"></i>
+        <i className="fab fa-youtube mr-20px mx-1"></i>
+        <i className="fab fa-linkedin-in mr-20px mx-1"></i>
       </div>
     </footer>
   );

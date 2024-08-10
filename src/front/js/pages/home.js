@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Card } from "../component/Card";
+<<<<<<< HEAD
 
 import Workout from "./workout";
 
@@ -11,6 +12,8 @@ import Workout from "./workout";
 
 //import Footer from "../component/footer";
 //import { NavBar } from "../component/navBar";
+=======
+>>>>>>> 1a5744cfb28cde62d983fd4028cc5df5611e2ca9
 
 export const Home = () => {
     const { store, actions } = useContext(Context);
@@ -22,6 +25,7 @@ export const Home = () => {
   
     return (
       <div>
+        {!store.token ? (
         <div className="row align-center">
           
           <Card />
@@ -29,6 +33,34 @@ export const Home = () => {
           <Card />
           <Card />   
         </div>
+      ): (
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 d-flex justify-content-center align-items-center">
+            <div className="col homeClick m-2">
+              <Link to="/exercices">
+                <h1 className="text-dark text-center display-4 fw-semibold">
+                  Exercises
+                </h1>
+              </Link>
+            </div>
+            <div className="col homeClick m-2">
+              <h1 className="text-dark text-center display-4 fw-semibold">
+                Custom Workout
+              </h1>
+            </div>
+            <div className="col homeClick m-2">
+              <h1 className="text-dark text-center display-4 fw-semibold">
+                Exercises
+              </h1>
+            </div>
+            <div className="col homeClick m-2">
+              <h1 className="text-dark text-center display-4 fw-semibold">
+                Exercises
+              </h1>
+            </div>
+          </div>
+        </div>
+      )}
       </div>
     );
 };

@@ -8,7 +8,7 @@ export const ProfileCard = () => {
         <div className=" align-items-center" style={{ padding: "10px" }}>
           <img 
             src="https://picsum.photos/200" 
-            className="card-img-top" 
+            className="card-img-top profileImage" 
             alt="..." 
             style={{ borderRadius: "50%", width: "100px", height: "100px", objectFit: "cover", marginRight: "10px" }} 
           />

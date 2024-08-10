@@ -13,6 +13,7 @@ from api.commands import setup_commands
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from datetime import timedelta
 from flask_mail import Mail, Message
+from flask_cors import CORS
 
 # from models import Person
 
@@ -30,6 +31,8 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = 'beauty.fitness.finalproyect@gmail.com'
 app.config['MAIL_PASSWORD'] = 'qrqq zrcl ylpo tptz'
+
+CORS(app)
 
 mail = Mail(app)
 
@@ -81,10 +84,11 @@ def forgot_password():
     if not user:
         return jsonify('Email not registered')
     token = create_access_token(identity=user.id,expires_delta=timedelta(minutes=5))
+    reset_url = f"https://didactic-winner-x5rrg7q5wjxjhpj44-3000.app.github.dev/reset-password?token={token}"
     string_template_html = f"""
     <html>
         <body>
-        <p>Click on the following <a href="https://didactic-winner-x5rrg7q5wjxjhpj44-3001.app.github.dev/{token}">link</a> to reset your password</p>
+        <p>Click on the following <a href="{reset_url}">link</a> to reset your password</p>
         </body>
     </html>
     """

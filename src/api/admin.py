@@ -1,7 +1,11 @@
   
 import os
 from flask_admin import Admin
+<<<<<<< HEAD
 from .models import db, User, ExperienceLevel, TrainingDays, Workout
+=======
+from .models import db, User, ExperienceLevel,TrainingDays
+>>>>>>> 1a5744cfb28cde62d983fd4028cc5df5611e2ca9
 from flask_admin.contrib.sqla import ModelView
 
 def setup_admin(app):
